@@ -1,8 +1,7 @@
-import Header from './layouts/components/Header/Header';
-import Sidebar from './layouts/components/Sidebar/Sidebar';
-import Home from './pages/Home/Home';
-import Blog from './pages/Blog/Blog';
+import Header from './layouts/components/Header';
+import Sidebar from './layouts/components/Sidebar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { publicRouters } from './routes/router';
 
 function App() {
     return (
@@ -11,8 +10,9 @@ function App() {
                 <Header />
                 <Sidebar />
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/blog" element={<Blog />} />
+                    {publicRouters.map((route, index) => {
+                        return <Route key={index} path={route.path} element={<route.component />} />;
+                    })}
                 </Routes>
             </div>
         </Router>
