@@ -6,10 +6,20 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <DefaultLayout />
                 <Routes>
                     {publicRouters.map((route, index) => {
-                        return <Route key={index} path={route.path} element={<route.component />} />;
+                        const Page = route.component;
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    <DefaultLayout>
+                                        <Page />
+                                    </DefaultLayout>
+                                }
+                            />
+                        );
                     })}
                 </Routes>
             </div>
