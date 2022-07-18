@@ -1,5 +1,5 @@
 function Blog() {
-    return <h3>Page Blog</h3>;
+    return <h3>Blog Page</h3>;
 }
 
 export default Blog;
