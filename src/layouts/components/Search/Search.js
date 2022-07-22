@@ -9,6 +9,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { SearchIcon } from '~/components/Icons';
 import AccountItem from '~/components/AccountItem';
 import styles from './Search.module.scss';
+import useDebounce from '~/hooks/useDebounce';
 
 const cx = classNames.bind(styles);
 
@@ -18,21 +19,23 @@ function Search() {
     const [loading, setLoading] = useState(false);
     const [showResult, setShowResult] = useState(false);
 
+    const debouncedValue = useDebounce(searchValue, 500);
+
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!searchValue.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
         const fetchApi = async () => {
             setLoading(true);
-            const result = await searchServices.search(searchValue);
+            const result = await searchServices.search(debouncedValue);
             setSearchResult(result);
             setLoading(false);
         };
         fetchApi();
-    }, [searchValue]);
+    }, [debouncedValue]);
 
     const handleHideResult = () => {
         setShowResult(false);
@@ -57,7 +60,7 @@ function Search() {
                 interactive
                 visible={showResult && searchResult.length > 0}
                 render={() => (
-                    <div className={cx('search-result')}>
+                    <div className={cx('search-result')} tabIndex="-1">
                         <PopperWrapper>
                             <h4 className={cx('search-title')}>Accounts</h4>
                             {searchResult.map((result) => (
