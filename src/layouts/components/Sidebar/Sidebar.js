@@ -1,12 +1,28 @@
 import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
+import config from '~/config';
+import MenuItem from './Menu/MenuItem';
+import { HomeIcon } from '~/components/Icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBook, faBookOpenReader, faHome, faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faBlogger } from '@fortawesome/free-brands-svg-icons';
+
 const cx = classNames.bind(styles);
 function Sidebar() {
     return (
         <div className={cx('wrapper')}>
-            <h3>Home</h3>
-            <h3>Learn</h3>
-            <h3>Blog</h3>
+            {/* <FontAwesomeIcon icon={fa} />} */}
+            <nav>
+                <MenuItem title="Home" to={config.routes.home} icon={<FontAwesomeIcon icon={faHome} />} />
+                <MenuItem title="Blog" to={config.routes.blog} icon={<FontAwesomeIcon icon={faBlogger} />} />
+                <MenuItem title="Library" to={config.routes.library} icon={<FontAwesomeIcon icon={faBook} />} />
+                <MenuItem
+                    title="Life skills"
+                    to={config.routes.lifeSkills}
+                    icon={<FontAwesomeIcon icon={faBookOpenReader} />}
+                />
+                <MenuItem title="Learn" to={config.routes.learn} icon={<FontAwesomeIcon icon={faLightbulb} />} />
+            </nav>
         </div>
     );
 }

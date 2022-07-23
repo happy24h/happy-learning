@@ -1,7 +1,10 @@
+import SimpleSlider from './components/HomeSlider/HomeSlider';
+import HomeContent from './components/HomeContent/HomeContent';
 function Home() {
     return (
         <div>
-            <h5>Home Page</h5>
+            <SimpleSlider />
+            <HomeContent />
         </div>
     );
 }
