@@ -61,3 +61,8 @@ a {
     color: var(--text-color);
     text-decoration: none;
 }
+
+.slick-prev {
+    left: -11px !important;
+    background-color: #fcaf17 !important;
+}
