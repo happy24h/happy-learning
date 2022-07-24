@@ -32,6 +32,7 @@ body {
     text-rendering: optimizespeed;
     color: var(--text-color);
     overflow: hidden;
+    overflow-y: scroll;
 }
 
 // Scrollbar CSS
@@ -60,9 +61,4 @@ input,
 a {
     color: var(--text-color);
     text-decoration: none;
-}
-
-.slick-prev {
-    left: -11px !important;
-    background-color: #fcaf17 !important;
 }
