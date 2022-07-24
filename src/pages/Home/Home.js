@@ -9,6 +9,8 @@ function Home() {
     return (
         <div className={cx('wrapper')}>
             <SimpleSlider />
+            <SimpleSlider />
+            <SimpleSlider />
             <HomeContent />
         </div>
     );

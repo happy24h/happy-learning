@@ -3,6 +3,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import classNames from 'classnames/bind';
 import styles from './SimpleSlider.module.scss';
+import SliderItem from '../SliderItem';
 
 // Import css files
 import 'slick-carousel/slick/slick.css';
@@ -20,40 +21,35 @@ function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return <div className={className} style={{ ...style, display: 'block', background: 'green' }} onClick={onClick} />;
 }
-export default class SimpleSlider extends React.Component {
-    render() {
-        var settings = {
-            dots: false,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            nextArrow: <SampleNextArrow />,
-            prevArrow: <SamplePrevArrow />,
-        };
-        return (
-            <div className={cx('slider')}>
-                <Slider className={cx('container')} {...settings}>
-                    <div>
-                        <h3>1</h3>
-                    </div>
-                    <div>
-                        <h3>2</h3>
-                    </div>
-                    <div>
-                        <h3>3</h3>
-                    </div>
-                    <div>
-                        <h3>4</h3>
-                    </div>
-                    <div>
-                        <h3>5</h3>
-                    </div>
-                    <div>
-                        <h3>6</h3>
-                    </div>
-                </Slider>
+export default function SimpleSlider() {
+    var settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+    };
+    return (
+        <div className="section-share section-specialty">
+            <div className="section-container">
+                <div className="section-header">
+                    <span className="title-section">Lộ trình học Front-end</span>
+                    <button className="btn-section">xem thêm</button>
+                </div>
+
+                <div className={cx('slider')}>
+                    <Slider className={cx('container')} {...settings}>
+                        <SliderItem />
+                        <SliderItem />
+                        <SliderItem />
+                        <SliderItem />
+                        <SliderItem />
+                        <SliderItem />
+                    </Slider>
+                </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
