@@ -43,6 +43,11 @@
     }
 }
 
+// Ẩn thanh arrow đầu tiên và cuối cùng
+.slick-disabled {
+    display: none !important;
+}
+
 .arrow.yt-horizontal-list-renderer {
     cursor: pointer;
     width: 40px;

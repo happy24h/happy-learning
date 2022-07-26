@@ -1,9 +1,19 @@
+import { useState, useEffect } from 'react';
+import * as userService from '~/services/userService';
 import Slider from 'react-slick';
-import SliderItem from '../SliderItem';
 import classNames from 'classnames/bind';
 import styles from '../ContentSlider/ContentSlider.module.scss';
 const cx = classNames.bind(styles);
 function BackEnd({ settings }) {
+    const [dataBackend, setDataBackend] = useState([]);
+    useEffect(() => {
+        const fetchApi = async () => {
+            let result = await userService.backend();
+            setDataBackend(result);
+        };
+        fetchApi();
+    }, []);
+
     return (
         <div className="section-share section-specialty">
             <div className="section-container">
@@ -14,12 +24,15 @@ function BackEnd({ settings }) {
 
                 <div className={cx('slider')}>
                     <Slider className={cx('container')} {...settings}>
-                        <SliderItem />
-                        <SliderItem />
-                        <SliderItem />
-                        <SliderItem />
-                        <SliderItem />
-                        <SliderItem />
+                        {dataBackend.map((item, index) => (
+                            <div key={index} className="section-customize">
+                                <div
+                                    className="bg-image section-specialty"
+                                    style={{ backgroundImage: `url(${item.image})` }}
+                                ></div>
+                                <div>{item.name}</div>
+                            </div>
+                        ))}
                     </Slider>
                 </div>
             </div>
