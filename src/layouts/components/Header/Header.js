@@ -68,13 +68,13 @@ function Header() {
                     <Link to={config.routes.home} className={cx('logo-link')}>
                         <img src={images.logo} alt="" width={48} height={40} />
                     </Link>
-                    <div>Học lập trình</div>
+                    <div>Nỗ lực để tốt hơn 1% mỗi ngày</div>
                 </div>
                 <Search />
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <div className={cx('my-course')}>Khóa học của tôi</div>
+                            <div className={cx('my-course')}>Khóa học</div>
                             <Tippy delay={[0, 50]} content="Thông báo" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <BellIcon />

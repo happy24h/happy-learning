@@ -32,7 +32,7 @@ function FrontEnd({ settings }) {
                                     className="bg-image section-specialty"
                                     style={{ backgroundImage: `url(${item.image})` }}
                                 ></div>
-                                <div>{item.name}</div>
+                                <div className="name-specialty">{item.name}</div>
                             </div>
                         ))}
                     </Slider>

@@ -3,14 +3,14 @@
 
 :root {
     --primary: #fcaf17;
-    --black: #030303;
+    --black: #000;
     --white: #fff;
     --text-color: #565656;
 
     --font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 
     // Default layout
-    --default-layout-header-height: 60px;
+    --default-layout-header-height: 70px;
     --default-layout-width: 1150px;
     --default-layout-horizontal-spacer: 24px;
 }

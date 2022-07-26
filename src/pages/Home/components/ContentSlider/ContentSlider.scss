@@ -95,6 +95,10 @@
                 background-image: url('../../../../assets/images/choose_happy.jpg');
             }
         }
+
+        .name-specialty {
+            margin-top: 3px;
+        }
     }
 }
 
@@ -168,4 +172,22 @@
             }
         }
     }
+}
+
+////
+.bg-image {
+    width: 285px;
+    height: 165px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #eee;
+
+    &.section-specialty {
+        background-image: url('../../../../assets/images/choose_happy.jpg');
+    }
+}
+
+.name-specialty {
+    margin-top: 3px;
 }
