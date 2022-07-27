@@ -19,7 +19,7 @@ function BackEnd({ settings }) {
             <div className="section-container">
                 <div className="section-header">
                     <span className="title-section">Lộ trình học Back-end</span>
-                    <button className="btn-section">xem thêm</button>
+                    <button className="btn-section">Xem thêm</button>
                 </div>
 
                 <div className={cx('slider')}>

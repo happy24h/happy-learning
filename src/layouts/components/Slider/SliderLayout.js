@@ -20,20 +20,13 @@ function SliderLayout() {
         {
             image: 'https://yt3.ggpht.com/iw1deD0urPolLmxUN7CZHdpEace1SnUUxKwCXBly9nAjRpVs3DKHNkhQIdYUcBxU_t-DdZRc=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj',
         },
+
         {
-            image: 'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+            image: 'https://toigingiuvedep.vn/wp-content/uploads/2020/12/anh-dep-thien-nhien-chat-luong-cao.jpg',
         },
+
         {
-            image: 'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
-        },
-        {
-            image: 'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
-        },
-        {
-            image: 'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
-        },
-        {
-            image: 'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+            image: 'https://img5.thuthuatphanmem.vn/uploads/2021/11/17/anh-nen-phong-canh-binh-yen_111415890.jpg',
         },
     ];
 

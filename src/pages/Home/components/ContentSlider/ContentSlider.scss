@@ -16,7 +16,7 @@
     background: #cdcdd1 !important;
     border: none !important;
     padding-top: 3px;
-
+    border-radius: 6px;
     height: 40px;
     width: 40px;
     box-shadow: 0 4px 4px rgb(0 0 0 / 30%), 0 0 4px rgb(0 0 0 / 20%);
@@ -62,7 +62,6 @@
 }
 
 // section
-
 .section-share {
     .section-header {
         display: flex;
@@ -84,8 +83,9 @@
         width: 288px !important;
         margin: 0 auto;
         .bg-image {
-            width: 285px;
+            width: 286px;
             height: 165px;
+            border-radius: 3px;
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -97,12 +97,15 @@
         }
 
         .name-specialty {
+            font-size: 1.4rem;
             margin-top: 3px;
+            text-align: left;
         }
     }
 }
 
 .section-share {
+    margin-top: 8px;
     height: 290px;
 
     .section-container {
@@ -110,9 +113,10 @@
         flex-direction: column;
 
         .section-header {
-            height: 60px;
-            margin-bottom: 20px;
-            padding-top: 20px;
+            padding: 0 7px;
+            height: 45px;
+            margin-bottom: 15px;
+            line-height: 45px;
 
             .title-section {
                 font-size: 22px;
@@ -120,17 +124,19 @@
             }
             .btn-section {
                 float: right;
-                padding: 10px 15px;
+                padding: 7px 12px;
+                border-radius: 3px;
                 display: block;
                 border: none;
                 outline: none;
                 background: #ebebed;
-                color: black;
+                color: var(--text-color);
                 cursor: pointer;
-                text-transform: uppercase;
+                // text-transform: uppercase;
+                font-weight: 500;
                 &:hover {
                     color: #fff;
-                    background: #f7d800;
+                    background: #fcaf17;
                 }
             }
         }
@@ -172,22 +178,4 @@
             }
         }
     }
-}
-
-////
-.bg-image {
-    width: 285px;
-    height: 165px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #eee;
-
-    &.section-specialty {
-        background-image: url('../../../../assets/images/choose_happy.jpg');
-    }
-}
-
-.name-specialty {
-    margin-top: 3px;
 }
