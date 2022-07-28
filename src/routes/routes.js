@@ -8,6 +8,9 @@ import Login from '~/pages/Login';
 import Library from '~/pages/Library';
 import LifeSkills from '~/pages/LifeSkills';
 
+// System
+import UserManage from '~/pages/System/Admin/UserManage';
+
 const publicRouters = [
     { path: config.routes.home, component: Home },
     { path: config.routes.blog, component: Blog },
@@ -15,6 +18,7 @@ const publicRouters = [
     { path: config.routes.lifeSkills, component: LifeSkills },
     { path: config.routes.learn, component: Learn, changeLayout: HeaderOnly },
     { path: config.routes.login, component: Login, changeLayout: null },
+    { path: config.routes.userManage, component: UserManage, changeLayout: null },
 ];
 
 const privateRoutes = [];

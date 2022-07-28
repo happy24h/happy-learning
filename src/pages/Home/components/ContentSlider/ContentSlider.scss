@@ -83,6 +83,7 @@
         width: 288px !important;
         margin: 0 auto;
         .bg-image {
+            cursor: pointer;
             width: 286px;
             height: 165px;
             border-radius: 3px;
@@ -100,6 +101,7 @@
             font-size: 1.4rem;
             margin-top: 3px;
             text-align: left;
+            cursor: pointer;
         }
     }
 }

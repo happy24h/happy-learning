@@ -5,6 +5,9 @@ const routes = {
     login: '/login',
     library: '/library',
     lifeSkills: '/lifeSkills',
+
+    // System
+    userManage: '/system/user-manage',
 };
 
 export default routes;
