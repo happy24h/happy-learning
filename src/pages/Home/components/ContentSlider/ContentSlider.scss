@@ -86,7 +86,7 @@
             cursor: pointer;
             width: 286px;
             height: 165px;
-            border-radius: 3px;
+            border-radius: var(--border-radius);
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -127,7 +127,7 @@
             .btn-section {
                 float: right;
                 padding: 7px 12px;
-                border-radius: 3px;
+                border-radius: var(--border-radius);
                 display: block;
                 border: none;
                 outline: none;

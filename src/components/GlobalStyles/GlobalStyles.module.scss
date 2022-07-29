@@ -6,6 +6,8 @@
     --black: #000;
     --white: #fff;
     --text-color: #565656;
+    --red: #cc0000;
+    --border-radius: 3px;
 
     --font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 
@@ -54,4 +56,18 @@ html *::-webkit-scrollbar-track {
 a {
     color: var(--text-color);
     text-decoration: none;
+}
+a:hover {
+    color: var(--black) !important;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: unset !important;
+    line-height: normal !important;
 }

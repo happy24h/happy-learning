@@ -6,7 +6,7 @@
     padding: 0;
 }
 
-.grid.wide {
+.wide {
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -38,7 +38,7 @@
 }
 
 .footer-item:hover {
-    color: #fcaf17;
+    color: var(--primary);
 }
 .footer-list {
     font-weight: 500;

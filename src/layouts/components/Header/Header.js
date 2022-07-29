@@ -1,5 +1,5 @@
-import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import config from '~/config';
 import Search from '~/layouts/components/Search';
@@ -36,7 +36,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const currentUser = true;
+    const currentUser = false;
     const userMenu = [
         {
             icon: <FontAwesomeIcon icon={faUser} />,
@@ -92,15 +92,15 @@ function Header() {
                         </>
                     )}
 
-                    <Menu items={currentUser && userMenu}>
-                        {currentUser && (
+                    {currentUser && (
+                        <Menu items={userMenu}>
                             <img
                                 className={cx('user-avatar')}
                                 src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
                                 alt="Nguyen Van A"
                             />
-                        )}
-                    </Menu>
+                        </Menu>
+                    )}
                 </div>
             </div>
         </div>

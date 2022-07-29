@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import validation from './validation';
-import './Login.scss';
+import classNames from 'classnames/bind';
+import styles from './Login.module.scss';
+
+const cx = classNames.bind(styles);
 
 const Form = ({ submitForm }) => {
     const [values, setValues] = useState({
@@ -30,50 +33,50 @@ const Form = ({ submitForm }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [errors]);
     return (
-        <div className="container">
-            <div className="app-wrapper">
+        <div className={cx('container')}>
+            <div className={cx('app-wrapper')}>
                 <div>
-                    <h2 className="title">Create Account!</h2>
+                    <h2 className={cx('title')}>Create Account!</h2>
                 </div>
-                <form className="form-wrapper">
-                    <div className="name">
-                        <label className="label">Full Name</label>
+                <form className={cx('form-wrapper')}>
+                    <div className={cx('name')}>
+                        <label className={cx('label')}>Full Name</label>
                         <input
-                            className="input"
+                            className={cx('input')}
                             type="text"
                             name="fullname"
                             value={values.fullname}
                             onChange={handleChange}
                         />
-                        {errors.fullname && <p className="error">{errors.fullname}</p>}
+                        {errors.fullname && <p className={cx('error')}>{errors.fullname}</p>}
                     </div>
 
-                    <div className="email">
-                        <label className="label">Email</label>
+                    <div className={cx('email')}>
+                        <label className={cx('label')}>Email</label>
                         <input
-                            className="input"
+                            className={cx('input')}
                             type="email"
                             name="email"
                             value={values.email}
                             onChange={handleChange}
                         />
-                        {errors.email && <p className="error">{errors.email}</p>}
+                        {errors.email && <p className={cx('error')}>{errors.email}</p>}
                     </div>
 
-                    <div className="password">
-                        <label className="label">Password</label>
+                    <div className={cx('password')}>
+                        <label className={cx('label')}>Password</label>
                         <input
-                            className="input"
+                            className={cx('input')}
                             type="password"
                             name="password"
                             value={values.password}
                             onChange={handleChange}
                         />
-                        {errors.password && <p className="error">{errors.password}</p>}
+                        {errors.password && <p className={cx('error')}>{errors.password}</p>}
                     </div>
 
                     <div>
-                        <button className="submit" onClick={handleFormSubmit}>
+                        <button className={cx('submit')} onClick={handleFormSubmit}>
                             Sign Up
                         </button>
                     </div>
