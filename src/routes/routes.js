@@ -9,7 +9,7 @@ import Library from '~/pages/Library';
 import LifeSkills from '~/pages/LifeSkills';
 
 // System
-import UserManage from '~/pages/System/Admin/UserManage';
+import UserManage from '~/pages/System/Manage/UserManage';
 
 const publicRouters = [
     { path: config.routes.home, component: Home },

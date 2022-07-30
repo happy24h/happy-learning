@@ -36,7 +36,7 @@ const Form = ({ submitForm }) => {
         <div className={cx('container')}>
             <div className={cx('app-wrapper')}>
                 <div>
-                    <h2 className={cx('title')}>Create Account!</h2>
+                    <h2 className={cx('title')}>Account Login</h2>
                 </div>
                 <form className={cx('form-wrapper')}>
                     <div className={cx('name')}>
