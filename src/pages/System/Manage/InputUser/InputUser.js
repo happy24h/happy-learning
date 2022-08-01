@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './InputUser.module.scss';
-import createNewUserService from '~/services/adminService';
+import * as axios from '~/services/adminService';
 import TableUser from '../TableUser';
 const cx = classNames.bind(styles);
 
@@ -27,23 +27,28 @@ function InputUser() {
 
     const createNewUser = async (data) => {
         try {
-            await createNewUserService(data);
+            await axios.createNewUserService(data);
         } catch (e) {
             console.log(e);
         }
     };
 
     const handleAddNewUser = async () => {
-        await createNewUser(state);
-        setLoadApi(!loadApi);
-        setState({
-            email: '',
-            password: '',
-            firstName: '',
-            lastName: '',
-            phonenumber: '',
-            address: '',
-        });
+        if (!email || !password || !firstName || !lastName || !phonenumber || !address) {
+            alert('Vui lòng nhập vào đầy đủ thông tin');
+        } else {
+            await createNewUser(state);
+
+            setLoadApi(!loadApi);
+            setState({
+                email: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                phonenumber: '',
+                address: '',
+            });
+        }
     };
 
     console.log('state', state);
@@ -136,10 +141,10 @@ function InputUser() {
                 </div>
             </form>
             <button className={cx('btn-add')} onClick={() => handleAddNewUser()}>
-                New add
+                New Add
             </button>
 
-            <TableUser data={loadApi} />
+            <TableUser data={loadApi} setData={setLoadApi} />
         </div>
     );
 }
