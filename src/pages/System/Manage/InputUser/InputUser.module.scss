@@ -1,10 +1,22 @@
+:root {
+    --width-input: 305px;
+}
 .container {
     font-family: 'Roboto';
     width: 1200px;
     margin: 30px auto 0;
     display: block;
     background: #fff;
-    padding: 10px 50px 50px;
+    padding: 10px 0 50px;
+
+    .title {
+        text-align: center;
+        // text-transform: uppercase;
+        font-weight: bold;
+        font-size: 22px;
+        margin-bottom: 35px;
+        color: var(--blue);
+    }
 
     form {
         display: flex;
@@ -14,6 +26,7 @@
 
     /* form starting stylings ------------------------------- */
     .group {
+        width: var(--width-input);
         position: relative;
         margin-bottom: 45px;
     }
@@ -21,9 +34,9 @@
         font-size: 18px;
         padding: 10px 10px 10px 5px;
         display: block;
-        width: 300px;
+        width: var(--width-input);
         border: none;
-        border-bottom: 1px solid #757575;
+        border-bottom: 2px solid #757575;
     }
     input:focus {
         outline: none;
@@ -36,7 +49,7 @@
         font-weight: normal;
         position: absolute;
         pointer-events: none;
-        left: 5px;
+        left: 0px;
         top: 10px;
         transition: 0.2s ease all;
         -moz-transition: 0.2s ease all;
@@ -48,23 +61,23 @@
     input:valid ~ label {
         top: -20px;
         font-size: 14px;
-        color: #5264ae;
+        color: var(--blue);
     }
 
     /* BOTTOM BARS ================================= */
     .bar {
         position: relative;
         display: block;
-        width: 300px;
+        width: var(--width-input);
     }
     .bar:before,
     .bar:after {
         content: '';
         height: 2px;
         width: 0;
-        bottom: 1px;
+        bottom: 0px;
         position: absolute;
-        background: #5264ae;
+        background: var(--blue);
         transition: 0.2s ease all;
         -moz-transition: 0.2s ease all;
         -webkit-transition: 0.2s ease all;
@@ -103,7 +116,7 @@
     /* ANIMATIONS ================ */
     @-webkit-keyframes inputHighlighter {
         from {
-            background: #5264ae;
+            background: var(--blue);
         }
         to {
             width: 0;
@@ -112,7 +125,7 @@
     }
     @-moz-keyframes inputHighlighter {
         from {
-            background: #5264ae;
+            background: var(--blue);
         }
         to {
             width: 0;
@@ -121,11 +134,26 @@
     }
     @keyframes inputHighlighter {
         from {
-            background: #5264ae;
+            background: var(--blue);
         }
         to {
             width: 0;
             background: transparent;
         }
+    }
+
+    .btn-add {
+        margin-bottom: 15px;
+        padding: 0 7px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: 700;
+        height: 30px;
+        line-height: 30px;
+        -webkit-user-select: none;
+        user-select: none;
+        color: #fff;
+        background-color: var(--blue);
     }
 }
