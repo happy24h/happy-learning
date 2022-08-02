@@ -3,15 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import * as userService from '~/services/userService';
 import * as axios from '~/services/adminService';
-import InputUser from '../InputUser';
+import AddUser from '../AddUser';
 import EditUser from '../EditUser';
+import { toast } from 'react-toastify';
 import './TableUser.scss';
 
 function TableUser() {
     const [loadApi, setLoadApi] = useState(true);
     const [layout, setLayout] = useState(true);
     const [arrUsers, setArrUsers] = useState([]);
-    const [state, setState] = useState({ userEdit: {} });
+    const [edit, setEdit] = useState({ currentEdit: {} });
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -26,6 +27,7 @@ function TableUser() {
         console.log('click delete', user);
         try {
             await axios.deleteUserService(user.id);
+            toast.success('Xóa người dùng thành công');
             setLoadApi(!loadApi);
         } catch (e) {}
     };
@@ -33,14 +35,15 @@ function TableUser() {
     // Edit user
     const handleEditUser = (user) => {
         console.log('check edit user ', user);
-        setState({
-            userEdit: user,
+        setEdit({
+            currentEdit: user,
         });
     };
 
-    const doEditUser = async (user) => {
+    const updateEditUser = async (user) => {
         try {
             await axios.editUserService(user);
+            toast.success('Cập nhật người dùng thành công');
             setLoadApi(!loadApi);
             setLayout(!layout);
         } catch (e) {
@@ -50,9 +53,9 @@ function TableUser() {
     return (
         <div>
             {layout ? (
-                <InputUser loadApi={loadApi} setLoadApi={setLoadApi} />
+                <AddUser loadApi={loadApi} setLoadApi={setLoadApi} />
             ) : (
-                <EditUser currentUser={state.userEdit} editUser={doEditUser} />
+                <EditUser currentUser={edit.currentEdit} updateEditUser={updateEditUser} />
             )}
             <div className="row">
                 <table id="TableManageUser">

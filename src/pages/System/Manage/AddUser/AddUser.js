@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
-import styles from './InputUser.module.scss';
+import styles from './AddUser.module.scss';
 import * as axios from '~/services/adminService';
+
+import { toast } from 'react-toastify';
 
 const cx = classNames.bind(styles);
 
-function InputUser({ loadApi, setLoadApi }) {
+function AddUser({ loadApi, setLoadApi }) {
     const [state, setState] = useState({
         email: '',
         password: '',
@@ -34,9 +36,10 @@ function InputUser({ loadApi, setLoadApi }) {
 
     const handleAddNewUser = async () => {
         if (!email || !password || !firstName || !lastName || !phonenumber || !address) {
-            alert('Vui lòng nhập vào đầy đủ thông tin');
+            toast.warning('Vui lòng nhập đầy đủ thông tin');
         } else {
             await createNewUser(state);
+            toast.success('Tạo người dùng thành công');
 
             setLoadApi(!loadApi);
             setState({
@@ -146,4 +149,4 @@ function InputUser({ loadApi, setLoadApi }) {
     );
 }
 
-export default InputUser;
+export default AddUser;

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './EditUser.module.scss';
-
+import { toast } from 'react-toastify';
 const cx = classNames.bind(styles);
-function EditUser({ editUser, currentUser }) {
-    const [state, setState] = useState({
+function EditUser({ updateEditUser, currentUser }) {
+    const [inputs, setInputs] = useState({
         email: '',
         password: '',
         firstName: '',
@@ -16,7 +16,7 @@ function EditUser({ editUser, currentUser }) {
         let user = currentUser;
         console.log('currentUser--->', user);
         if (user) {
-            setState({
+            setInputs({
                 id: user.id,
                 email: user.email,
                 password: 'harcode',
@@ -30,26 +30,21 @@ function EditUser({ editUser, currentUser }) {
 
     const onChangeInput = (event, id) => {
         // good code
-        let copyState = { ...state };
-        copyState[id] = event.target.value;
-        setState(
-            {
-                ...copyState,
-            },
-            () => {
-                // console.log('check good state:', this.state)
-            },
-        );
+        let copyInputs = { ...inputs };
+        copyInputs[id] = event.target.value;
+        setInputs({
+            ...copyInputs,
+        });
     };
 
-    const handleSaveUser = () => {
+    const handleUpdateUser = () => {
         if (!email || !password || !firstName || !lastName || !phonenumber || !address) {
-            alert('Vui lòng nhập đầy đủ thông tin');
+            toast.warning('Vui lòng nhập đầy đủ thông tin');
         } else {
-            editUser(state);
+            updateEditUser(inputs);
         }
     };
-    let { email, password, firstName, lastName, phonenumber, address } = state;
+    let { email, password, firstName, lastName, phonenumber, address } = inputs;
 
     return (
         <div className={cx('container')}>
@@ -136,7 +131,7 @@ function EditUser({ editUser, currentUser }) {
                     <label>Address</label>
                 </div>
             </form>
-            <button className={cx('btn-add')} onClick={() => handleSaveUser()}>
+            <button className={cx('btn-add')} onClick={() => handleUpdateUser()}>
                 Update User
             </button>
         </div>
