@@ -1,11 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
-import styles from './InputUser.module.scss';
-import * as axios from '~/services/adminService';
+import styles from './EditUser.module.scss';
 
 const cx = classNames.bind(styles);
-
-function InputUser({ loadApi, setLoadApi }) {
+function EditUser({ editUser, currentUser }) {
     const [state, setState] = useState({
         email: '',
         password: '',
@@ -14,49 +12,48 @@ function InputUser({ loadApi, setLoadApi }) {
         phonenumber: '',
         address: '',
     });
-
-    const onChangeInput = (event, id) => {
-        let copyState = { ...state };
-        console.log('copy state--->', copyState);
-        copyState[id] = event.target.value;
-        setState({
-            ...copyState,
-        });
-    };
-
-    const createNewUser = async (data) => {
-        try {
-            await axios.createNewUserService(data);
-        } catch (e) {
-            console.log(e);
-        }
-    };
-
-    const handleAddNewUser = async () => {
-        if (!email || !password || !firstName || !lastName || !phonenumber || !address) {
-            alert('Vui lòng nhập vào đầy đủ thông tin');
-        } else {
-            await createNewUser(state);
-
-            setLoadApi(!loadApi);
+    useEffect(() => {
+        let user = currentUser;
+        console.log('currentUser--->', user);
+        if (user) {
             setState({
-                email: '',
-                password: '',
-                firstName: '',
-                lastName: '',
-                phonenumber: '',
-                address: '',
+                id: user.id,
+                email: user.email,
+                password: 'harcode',
+                phonenumber: user.phonenumber,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                address: user.address,
             });
         }
+    }, [currentUser]);
+
+    const onChangeInput = (event, id) => {
+        // good code
+        let copyState = { ...state };
+        copyState[id] = event.target.value;
+        setState(
+            {
+                ...copyState,
+            },
+            () => {
+                // console.log('check good state:', this.state)
+            },
+        );
     };
 
-    console.log('state', state);
-
+    const handleSaveUser = () => {
+        if (!email || !password || !firstName || !lastName || !phonenumber || !address) {
+            alert('Vui lòng nhập đầy đủ thông tin');
+        } else {
+            editUser(state);
+        }
+    };
     let { email, password, firstName, lastName, phonenumber, address } = state;
 
     return (
         <div className={cx('container')}>
-            <div className={cx('title')}>User Management System</div>
+            <div className={cx('title')}>Edit User </div>
             <form>
                 <div className={cx('group')}>
                     <input
@@ -139,11 +136,11 @@ function InputUser({ loadApi, setLoadApi }) {
                     <label>Address</label>
                 </div>
             </form>
-            <button className={cx('btn-add')} onClick={() => handleAddNewUser()}>
-                New Add
+            <button className={cx('btn-add')} onClick={() => handleSaveUser()}>
+                Update User
             </button>
         </div>
     );
 }
 
-export default InputUser;
+export default EditUser;

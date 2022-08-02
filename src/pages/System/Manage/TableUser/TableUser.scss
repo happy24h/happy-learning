@@ -33,6 +33,7 @@
     outline: none;
     background: transparent;
     color: orange;
+    cursor: pointer;
     &:hover {
         background-color: transparent !important;
         color: orange !important;
@@ -44,6 +45,7 @@
     outline: none;
     background: transparent;
     color: rgb(235, 15, 15);
+    cursor: pointer;
     &:hover {
         background-color: transparent !important;
         color: rgb(235, 15, 15) !important;

@@ -1,9 +1,9 @@
 import './UserManage.scss';
-import InputUser from './InputUser';
+import TableUser from './TableUser';
 function UserAdmin() {
     return (
         <div className="container">
-            <InputUser />
+            <TableUser />
         </div>
     );
 }
