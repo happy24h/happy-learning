@@ -17,7 +17,7 @@ function TableUser() {
     useEffect(() => {
         const fetchApi = async () => {
             const response = await userService.getAllUsers('ALL');
-            setArrUsers(response);
+            setArrUsers(response.reverse());
         };
         fetchApi();
     }, [loadApi]);
@@ -51,7 +51,7 @@ function TableUser() {
         }
     };
     return (
-        <div>
+        <div className="container">
             {layout ? (
                 <AddUser loadApi={loadApi} setLoadApi={setLoadApi} />
             ) : (

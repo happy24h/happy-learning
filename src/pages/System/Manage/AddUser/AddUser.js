@@ -53,8 +53,6 @@ function AddUser({ loadApi, setLoadApi }) {
         }
     };
 
-    console.log('state', state);
-
     let { email, password, firstName, lastName, phonenumber, address } = state;
 
     return (
