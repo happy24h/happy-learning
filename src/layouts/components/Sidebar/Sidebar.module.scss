@@ -1,5 +1,5 @@
 .wrapper {
-    width: 210px;
+    width: var(--width-sidebar);
     height: 350px;
     padding: 10px 0px;
     background-color: #ffffff;
@@ -7,5 +7,5 @@
 
 .navWrapper {
     position: fixed;
-    width: 210px;
+    width: var(--width-sidebar);
 }

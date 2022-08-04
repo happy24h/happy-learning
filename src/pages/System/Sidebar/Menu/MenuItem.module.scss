@@ -1,21 +1,27 @@
 .menu-item {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     padding: 8px 18px;
     font-size: 1.4rem;
     font-weight: 700;
-    // border-radius: 4px;
-    color: #e8eaec;
-    transition: background-color ease-in-out 200ms;
+    color: var(--white);
+    cursor: pointer;
+    // transition: 0.3s;
+    // transition: background-color ease-in-out 500ms;
 
     &:hover {
-        background: rgba(22, 24, 35, 0.03);
+        background: #e5e5e5;
+        color: var(--black);
     }
 
     &.active {
         color: var(--black);
         background-color: #e5e5e5;
     }
+}
+.title-icon {
+    display: flex;
+    align-items: center;
 }
 .icon {
     width: 25px;
@@ -27,4 +33,46 @@
 
 ul {
     list-style-type: none;
+}
+
+.list-item {
+    display: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    z-index: 15;
+    position: relative;
+    top: 8px;
+    left: -18px;
+    width: 220px;
+    background-color: #e5e5e5;
+    animation: listItem 0.5s linear;
+}
+
+.link-item {
+    text-decoration: none;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    padding: 0 18px;
+}
+
+.link-item:hover {
+    background-color: #ddd;
+}
+
+.menu-item:hover .list-item {
+    display: block;
+}
+
+@keyframes listItem {
+    from {
+        opacity: 0;
+        top: -100px;
+        height: 0px;
+    }
+    to {
+        opacity: 0.5;
+        top: 20%;
+        height: 80px;
+    }
 }
