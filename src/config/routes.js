@@ -7,7 +7,7 @@ const routes = {
     lifeSkills: '/lifeSkills',
 
     // System
-    userManage: '/system/user-manage',
+    SystemLayout: '/system/user-manage',
 };
 
 export default routes;

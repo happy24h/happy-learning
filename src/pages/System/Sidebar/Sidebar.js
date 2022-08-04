@@ -6,16 +6,72 @@ import { faBook, faHome, faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import { faBlogger } from '@fortawesome/free-brands-svg-icons';
 const cx = classNames.bind(styles);
 function Sidebar() {
+    const MENU_ITEMS = [
+        {
+            icon: <FontAwesomeIcon icon={faHome} />,
+            title: 'Home',
+            data: [
+                {
+                    title: 'CRUD User',
+                    to: '/system/user-manage',
+                },
+                {
+                    title: 'Redux CRUD',
+                    to: '/system/user-manage',
+                },
+            ],
+        },
+        {
+            icon: <FontAwesomeIcon icon={faBook} />,
+            title: 'Library',
+            data: [
+                {
+                    title: 'Library users',
+                    to: '/',
+                },
+                {
+                    title: 'React library',
+                    to: '/',
+                },
+            ],
+        },
+        {
+            icon: <FontAwesomeIcon icon={faBlogger} />,
+            title: 'Blog',
+            data: [
+                {
+                    title: 'Blog users',
+                    to: '/',
+                },
+            ],
+        },
+        {
+            icon: <FontAwesomeIcon icon={faLightbulb} />,
+            title: 'Learn',
+            data: [
+                {
+                    title: 'self learning',
+                    to: '/',
+                },
+                {
+                    title: 'Read books',
+                    to: '/',
+                },
+            ],
+        },
+    ];
     return (
         <nav className={cx('sidebar')}>
             <div className={cx('logo')}>
                 <span>Happy24h</span>
             </div>
             <div className={cx('sidebar-menu')}>
-                <MenuItem title="Home" icon={<FontAwesomeIcon icon={faHome} />} />
-                <MenuItem title="Library" icon={<FontAwesomeIcon icon={faBook} />} />
+                {MENU_ITEMS.map((item, index) => (
+                    <MenuItem title={item.title} icon={item.icon} data={item.data} />
+                ))}
+                {/* <MenuItem title="Library" icon={<FontAwesomeIcon icon={faBook} />} />
                 <MenuItem title="Blog" icon={<FontAwesomeIcon icon={faBlogger} />} />
-                <MenuItem title="Learn" icon={<FontAwesomeIcon icon={faLightbulb} />} />
+                <MenuItem title="Learn" icon={<FontAwesomeIcon icon={faLightbulb} />} /> */}
             </div>
         </nav>
     );

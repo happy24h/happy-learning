@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './MenuItem.module.scss';
 
 const cx = classNames.bind(styles);
-function MenuItem({ title, icon }) {
+function MenuItem({ title, icon, data }) {
     return (
         <ul>
             <li className={cx('menu-item')}>
@@ -15,16 +15,15 @@ function MenuItem({ title, icon }) {
                     <span className={cx('title')}>{title}</span>
                 </div>
                 <ul className={cx('list-item')}>
-                    <li>
-                        <NavLink className={cx('link-item')} to={'/system/user-manage'}>
-                            CRUD User
+                    {data.map((item, index) => (
+                        <NavLink key={index} className={cx('link-item')} to={item.to}>
+                            {item.title}
                         </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={cx('link-item')} to={'/system/user-manage'}>
-                            Redux CRUD
-                        </NavLink>
-                    </li>
+                    ))}
+
+                    {/* <NavLink className={cx('link-item')} to={'/system/user-manage'}>
+                        Redux CRUD
+                    </NavLink> */}
                 </ul>
             </li>
         </ul>

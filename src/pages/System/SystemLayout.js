@@ -1,10 +1,10 @@
-import TableUser from './TableUser';
-import Header from '../Header';
-import Sidebar from '../Sidebar';
+import TableUser from './Manage/TableUser';
+import Header from './Header';
+import Sidebar from './Sidebar';
 import classNames from 'classnames/bind';
-import styles from './UserManage.module.scss';
+import styles from './SystemLayout.module.scss';
 const cx = classNames.bind(styles);
-function UserManage() {
+function SystemLayout() {
     return (
         <div className={cx('container')}>
             <Sidebar />
@@ -16,4 +16,4 @@ function UserManage() {
     );
 }
 
-export default UserManage;
+export default SystemLayout;

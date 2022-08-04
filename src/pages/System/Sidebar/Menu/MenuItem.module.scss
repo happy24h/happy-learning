@@ -45,7 +45,7 @@ ul {
     left: -18px;
     width: 220px;
     background-color: #e5e5e5;
-    animation: listItem 0.5s linear;
+    animation: listItem 0.3s linear;
 }
 
 .link-item {
@@ -67,12 +67,12 @@ ul {
 @keyframes listItem {
     from {
         opacity: 0;
-        top: -100px;
         height: 0px;
+        transform: translateY(-100%);
     }
     to {
         opacity: 0.5;
-        top: 20%;
         height: 80px;
+        transform: translateY(0%);
     }
 }
