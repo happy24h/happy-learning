@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { publicRouters } from './routes';
+import { privateRoutes, publicRouters } from './routes';
 import DefaultLayout from './layouts/DefaultLayout';
+import SystemLayout from './pages/System/SystemLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.min.css';
 
@@ -19,6 +20,21 @@ function App() {
                         } else if (route.changeLayout === null) {
                             Layout = Fragment;
                         }
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    <Layout>
+                                        <Page />
+                                    </Layout>
+                                }
+                            />
+                        );
+                    })}
+                    {privateRoutes.map((route, index) => {
+                        const Page = route.component;
+                        let Layout = SystemLayout;
                         return (
                             <Route
                                 key={index}

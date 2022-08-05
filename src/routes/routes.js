@@ -9,7 +9,8 @@ import Library from '~/pages/Library';
 import LifeSkills from '~/pages/LifeSkills';
 
 // System
-import SystemLayout from '~/pages/System/SystemLayout';
+import TableUser from '~/pages/System/Manage/TableUser';
+import ManageRedux from '~/pages/System/ManageRedux/TableUser';
 
 const publicRouters = [
     { path: config.routes.home, component: Home },
@@ -18,9 +19,11 @@ const publicRouters = [
     { path: config.routes.lifeSkills, component: LifeSkills },
     { path: config.routes.learn, component: Learn, changeLayout: HeaderOnly },
     { path: config.routes.login, component: Login, changeLayout: null },
-    { path: config.routes.SystemLayout, component: SystemLayout, changeLayout: null },
 ];
 
-const privateRoutes = [];
+const privateRoutes = [
+    { path: config.routes.TableUser, component: TableUser },
+    { path: config.routes.manageRedux, component: ManageRedux },
+];
 
 export { publicRouters, privateRoutes };

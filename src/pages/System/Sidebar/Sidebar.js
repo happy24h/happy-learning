@@ -17,7 +17,7 @@ function Sidebar() {
                 },
                 {
                     title: 'Redux CRUD',
-                    to: '/system/user-manage',
+                    to: '/system/user-redux',
                 },
             ],
         },
@@ -67,11 +67,8 @@ function Sidebar() {
             </div>
             <div className={cx('sidebar-menu')}>
                 {MENU_ITEMS.map((item, index) => (
-                    <MenuItem title={item.title} icon={item.icon} data={item.data} />
+                    <MenuItem key={index} title={item.title} icon={item.icon} data={item.data} />
                 ))}
-                {/* <MenuItem title="Library" icon={<FontAwesomeIcon icon={faBook} />} />
-                <MenuItem title="Blog" icon={<FontAwesomeIcon icon={faBlogger} />} />
-                <MenuItem title="Learn" icon={<FontAwesomeIcon icon={faLightbulb} />} /> */}
             </div>
         </nav>
     );

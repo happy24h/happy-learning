@@ -7,7 +7,8 @@ const routes = {
     lifeSkills: '/lifeSkills',
 
     // System
-    SystemLayout: '/system/user-manage',
+    TableUser: '/system/user-manage',
+    manageRedux: '/system/user-redux',
 };
 
 export default routes;
