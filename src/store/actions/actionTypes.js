@@ -1,8 +1,5 @@
-const actionTypes = Object.freeze({
-    INCREMENT: 'INCREMENT',
-    DECREMENT: 'DECREMENT',
-
-    CREATE_USER: 'CREATE_USER',
-    DELETE_USER: 'DELETE_USER',
-});
-export default actionTypes;
+export const GET_USERS = 'GET_USERS';
+export const DELETE_USER = 'DELETE_USER';
+export const ADD_USER = 'ADD_USER';
+export const UPDATE_USER = 'UPDATE_USER';
+export const GET_SINGLE_USER = 'GET_SINGLE_USER';

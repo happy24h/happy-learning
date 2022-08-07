@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './AddUser.module.scss';
-import * as axios from '~/services/adminService';
+import { addUser } from '~/store/actions/manageActions';
+import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
 
 const cx = classNames.bind(styles);
 
-function AddUser({ loadApi, setLoadApi }) {
+function AddUser() {
     const [state, setState] = useState({
         email: '',
         password: '',
@@ -16,32 +17,18 @@ function AddUser({ loadApi, setLoadApi }) {
         phonenumber: '',
         address: '',
     });
+    let dispatch = useDispatch();
 
-    const onChangeInput = (event, id) => {
-        let copyState = { ...state };
-        console.log('copy state--->', copyState);
-        copyState[id] = event.target.value;
-        setState({
-            ...copyState,
-        });
-    };
-
-    const createNewUser = async (data) => {
-        try {
-            await axios.createNewUserService(data);
-        } catch (e) {
-            console.log(e);
-        }
+    const handleInputChange = (e) => {
+        let { name, value } = e.target;
+        setState({ ...state, [name]: value });
     };
 
     const handleAddNewUser = async () => {
         if (!email || !password || !firstName || !lastName || !phonenumber || !address) {
             toast.warning('Vui lòng nhập đầy đủ thông tin');
         } else {
-            await createNewUser(state);
-            toast.success('Tạo người dùng thành công');
-
-            setLoadApi(!loadApi);
+            dispatch(addUser(state));
             setState({
                 email: '',
                 password: '',
@@ -57,84 +44,42 @@ function AddUser({ loadApi, setLoadApi }) {
 
     return (
         <div className={cx('container')}>
-            <div className={cx('title')}>User Management System 2</div>
+            <div className={cx('title')}>React Redux CRUD example with API </div>
             <form>
                 <div className={cx('group')}>
-                    <input
-                        type="text"
-                        required
-                        value={email}
-                        onChange={(event) => {
-                            onChangeInput(event, 'email');
-                        }}
-                    />
+                    <input type="text" required value={email} onChange={handleInputChange} name="email" />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Email</label>
                 </div>
                 <div className={cx('group')}>
-                    <input
-                        type="text"
-                        required
-                        value={password}
-                        onChange={(event) => {
-                            onChangeInput(event, 'password');
-                        }}
-                    />
+                    <input type="text" required value={password} onChange={handleInputChange} name="password" />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Password</label>
                 </div>
                 <div className={cx('group')}>
-                    <input
-                        type="text"
-                        required
-                        value={firstName}
-                        onChange={(event) => {
-                            onChangeInput(event, 'firstName');
-                        }}
-                    />
+                    <input type="text" required value={firstName} onChange={handleInputChange} name="firstName" />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>First Name</label>
                 </div>
 
                 <div className={cx('group')}>
-                    <input
-                        type="text"
-                        required
-                        value={lastName}
-                        onChange={(event) => {
-                            onChangeInput(event, 'lastName');
-                        }}
-                    />
+                    <input type="text" required value={lastName} onChange={handleInputChange} name="lastName" />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Last Name</label>
                 </div>
                 <div className={cx('group')}>
-                    <input
-                        type="text"
-                        required
-                        value={phonenumber}
-                        onChange={(event) => {
-                            onChangeInput(event, 'phonenumber');
-                        }}
-                    />
+                    <input type="text" required value={phonenumber} onChange={handleInputChange} name="phonenumber" />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Phone Number</label>
                 </div>
 
                 <div className={cx('group')}>
-                    <input
-                        type="text"
-                        required
-                        value={address}
-                        onChange={(event) => {
-                            onChangeInput(event, 'address');
-                        }}
-                    />
+                    <input type="text" required value={address} onChange={handleInputChange} name="address" />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Address</label>

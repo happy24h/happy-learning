@@ -1,62 +1,42 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
-import * as userService from '~/services/userService';
-import * as axios from '~/services/adminService';
+
 import AddUser from '../AddUser';
 import EditUser from '../EditUser';
-import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadUsers, deleteUser } from '~/store/actions/manageActions';
+
 import './TableUser.scss';
 
 function TableUser() {
-    const [loadApi, setLoadApi] = useState(true);
     const [layout, setLayout] = useState(true);
-    const [arrUsers, setArrUsers] = useState([]);
     const [edit, setEdit] = useState({ currentEdit: {} });
+    let dispatch = useDispatch();
+    const { users } = useSelector((state) => state.dataUsers);
+    console.log({ users });
 
     useEffect(() => {
-        const fetchApi = async () => {
-            const response = await userService.getAllUsers('ALL');
-            setArrUsers(response.reverse());
-        };
-        fetchApi();
-    }, [loadApi]);
+        dispatch(loadUsers());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-    // Delete User
-    const handleDeleteUser = async (user) => {
-        console.log('click delete', user);
-        try {
-            await axios.deleteUserService(user.id);
-            toast.success('Xóa người dùng thành công');
-            setLoadApi(!loadApi);
-        } catch (e) {}
+    const handleDelete = (id) => {
+        dispatch(deleteUser(id));
     };
 
-    // Edit user
+    //edit crud
     const handleEditUser = (user) => {
-        console.log('check edit user ', user);
+        console.log('check edit user redux ', user);
         setEdit({
             currentEdit: user,
         });
+        setLayout(!layout);
     };
 
-    const updateEditUser = async (user) => {
-        try {
-            await axios.editUserService(user);
-            toast.success('Cập nhật người dùng thành công');
-            setLoadApi(!loadApi);
-            setLayout(!layout);
-        } catch (e) {
-            console.log(e);
-        }
-    };
     return (
         <div className="container">
-            {layout ? (
-                <AddUser loadApi={loadApi} setLoadApi={setLoadApi} />
-            ) : (
-                <EditUser currentUser={edit.currentEdit} updateEditUser={updateEditUser} />
-            )}
+            {layout ? <AddUser /> : <EditUser currentUser={edit.currentEdit} layout={layout} setLayout={setLayout} />}
             <div className="row">
                 <table id="TableManageUser">
                     <tbody>
@@ -68,27 +48,30 @@ function TableUser() {
                             <th>Address</th>
                             <th>Actions</th>
                         </tr>
-                        {arrUsers.map((item, index) => (
-                            <tr key={index}>
-                                <td>{item.email}</td>
-                                <td>{item.firstName}</td>
-                                <td>{item.lastName}</td>
-                                <td>{item.phonenumber}</td>
-                                <td>{item.address}</td>
-                                <td>
-                                    <button className="btn-edit" onClick={() => handleEditUser(item)}>
-                                        <FontAwesomeIcon
-                                            className="btn-icon"
-                                            icon={faPencilAlt}
-                                            onClick={() => setLayout(false)}
-                                        />
-                                    </button>
-                                    <button className="btn-delete" onClick={() => handleDeleteUser(item)}>
-                                        <FontAwesomeIcon className="btn-icon" icon={faTrash} />
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
+
+                        {users.map((item, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{item.email}</td>
+                                    <td>{item.firstName}</td>
+                                    <td>{item.lastName}</td>
+                                    <td>{item.phonenumber}</td>
+                                    <td>{item.address}</td>
+                                    <td>
+                                        <button className="btn-edit" onClick={() => handleEditUser(item)}>
+                                            <FontAwesomeIcon
+                                                className="btn-icon"
+                                                icon={faPencilAlt}
+                                                onClick={() => setLayout(false)}
+                                            />
+                                        </button>
+                                        <button className="btn-delete" onClick={() => handleDelete(item.id)}>
+                                            <FontAwesomeIcon className="btn-icon" icon={faTrash} />
+                                        </button>
+                                    </td>
+                                </tr>
+                            );
+                        })}
                     </tbody>
                 </table>
             </div>

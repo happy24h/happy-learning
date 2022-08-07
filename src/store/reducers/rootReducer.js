@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import counterReducer from './counterReducer';
+import manageReducer from './manageReducer';
 
 const allReducer = combineReducers({
-    counterReducer,
+    dataUsers: manageReducer,
 });
 
 export default allReducer;
