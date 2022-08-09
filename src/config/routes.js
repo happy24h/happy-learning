@@ -3,6 +3,7 @@ const routes = {
     blog: '/blog',
     learn: '/learn',
     login: '/login',
+    register: '/register',
     library: '/library',
     lifeSkills: '/lifeSkills',
 

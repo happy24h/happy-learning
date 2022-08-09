@@ -21,7 +21,6 @@ const manageReducer = (state = initialState, action) => {
                 ...state,
             };
         case types.UPDATE_USER:
-            console.log('action update', { state });
             return {
                 ...state,
             };

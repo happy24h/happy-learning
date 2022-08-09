@@ -1,29 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import validation from './validation';
+import './Register.scss';
 import { Link } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import '../Register/Register.scss';
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 
-const Login = ({ submitForm }) => {
-    const [values, setValues] = useState({
+function Register({ submitForm }) {
+    const [state, setState] = useState({
         email: '',
         password: '',
+        confirmPassword: '',
     });
 
     const [errors, setErrors] = useState({});
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
-
     const handleChange = (event) => {
-        setValues({
-            ...values,
+        setState({
+            ...state,
             [event.target.name]: event.target.value,
         });
     };
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        setErrors(validation(values));
+        setErrors(validation(state));
         setDataIsCorrect(true);
     };
     useEffect(() => {
@@ -32,12 +34,11 @@ const Login = ({ submitForm }) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [errors]);
-
-    let { email, password } = values;
+    const { email, password, confirmPassword } = state;
     return (
         <div className="container-login">
             <form className="loginForm">
-                <h1 className="heading">Sign In</h1>
+                <h1 className="heading">Create Account</h1>
                 <div className="socialLogins">
                     <button className="socialLogin">
                         <FontAwesomeIcon icon={faFacebookF} />
@@ -81,18 +82,33 @@ const Login = ({ submitForm }) => {
                     <div className="message">{errors.password && <p className="error">{errors.password}</p>}</div>
                 </div>
                 <div className="field">
-                    <span className="linkfield">Forgot Password?</span>
+                    <div className="customInput">
+                        <FontAwesomeIcon className="inputicon" icon={faKey} />
+                        <input
+                            className="inputfield"
+                            type="password"
+                            placeholder="Confirm Password.."
+                            autoComplete="new-password"
+                            name="confirmPassword"
+                            value={confirmPassword}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="message">
+                        {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
+                    </div>
                 </div>
                 <div className="field submitfield" onClick={handleFormSubmit}>
-                    <input className="submit" type="submit" value="SIGN IN" />
+                    <input className="submit" type="submit" value="SIGN UP" />
                 </div>
                 <div className="field signupfield">
                     <span className="linkfield">
-                        <Link to="/register">New User? Sign up here</Link>
+                        <Link to="/login">Already signed up? Login here</Link>
                     </span>
                 </div>
             </form>
         </div>
     );
-};
-export default Login;
+}
+
+export default Register;

@@ -28,8 +28,7 @@ function EditUser({ currentUser, setLayout, layout }) {
                 address: user.address,
             });
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [currentUser]);
 
     const handleInputChange = (e) => {
         let { name, value } = e.target;
