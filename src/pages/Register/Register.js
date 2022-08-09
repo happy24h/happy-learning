@@ -40,14 +40,14 @@ function Register({ submitForm }) {
             <form className="loginForm">
                 <h1 className="heading">Create Account</h1>
                 <div className="socialLogins">
-                    <button className="socialLogin">
+                    <button className="socialLogin1">
                         <FontAwesomeIcon icon={faFacebookF} />
                     </button>
-                    <button className="socialLogin">
-                        <FontAwesomeIcon icon={faGoogle} />
-                    </button>
-                    <button className="socialLogin">
+                    <button className="socialLogin2">
                         <FontAwesomeIcon icon={faLinkedinIn} />
+                    </button>
+                    <button className="socialLogin3">
+                        <FontAwesomeIcon icon={faGoogle} />
                     </button>
                 </div>
                 <span className="standardText">Or use your email instead</span>

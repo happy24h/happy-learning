@@ -10,8 +10,8 @@ import Library from '~/pages/Library';
 import LifeSkills from '~/pages/LifeSkills';
 
 // System
-import TableUser from '~/pages/System/Manage/TableUser';
-import ManageRedux from '~/pages/System/ManageRedux/TableUser';
+import TableUser from '~/pages/System/Page/Manage/TableUser';
+import ManageRedux from '~/pages/System/Page/ManageRedux/TableUser';
 
 const publicRouters = [
     { path: config.routes.home, component: Home },

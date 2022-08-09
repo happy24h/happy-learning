@@ -10,7 +10,7 @@ function SystemLayout({ children }) {
             <Sidebar />
             <div className={cx('content')}>
                 <Header />
-                {children}
+                <div className={cx('page')}>{children}</div>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
-import styles from './AddUser.module.scss';
+import styles from '../../Styles/UserInput.module.scss';
 import * as axios from '~/services/adminService';
 
 import { toast } from 'react-toastify';

@@ -37,16 +37,16 @@ const Login = ({ submitForm }) => {
     return (
         <div className="container-login">
             <form className="loginForm">
-                <h1 className="heading">Sign In</h1>
+                <h1 className="heading">Sign In With</h1>
                 <div className="socialLogins">
-                    <button className="socialLogin">
+                    <button className="socialLogin1">
                         <FontAwesomeIcon icon={faFacebookF} />
                     </button>
-                    <button className="socialLogin">
-                        <FontAwesomeIcon icon={faGoogle} />
-                    </button>
-                    <button className="socialLogin">
+                    <button className="socialLogin2">
                         <FontAwesomeIcon icon={faLinkedinIn} />
+                    </button>
+                    <button className="socialLogin3">
+                        <FontAwesomeIcon icon={faGoogle} />
                     </button>
                 </div>
                 <span className="standardText">Or use your email instead</span>

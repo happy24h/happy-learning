@@ -1,13 +1,29 @@
 .container-login {
-    text-align: center;
+    background-image: url(../../assets/images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: #eee;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .loginForm {
-    padding-top: 6em;
+    text-align: center;
+    padding-top: 5em;
+
+    width: 400px;
+    background: rgb(232, 234, 236, 0.5);
+    height: 580px;
+    border-radius: 6px;
+    margin: 0 auto;
 }
 
 .heading {
     font-size: 180%;
-    color: green;
+    color: var(--text-color);
     padding-bottom: 5px;
 }
 
@@ -29,13 +45,14 @@
     margin: auto;
 }
 .error {
+    font-size: 1.4rem;
     color: red;
 }
 
 .inputfield:-webkit-autofill,
 .inputfield:-webkit-autofill:hover,
 .inputfield:-webkit-autofill:focus {
-    -webkit-text-fill-color: green;
+    -webkit-text-fill-color: var(--text-color);
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -43,6 +60,7 @@
     background: #dedede;
     width: 280px;
     margin: 0 auto;
+    border-radius: var(--border-radius);
 }
 
 .inputicon {
@@ -57,11 +75,17 @@
 
 .submit {
     font-size: 100%;
-    width: 150px;
-    background: rgb(10, 255, 100);
+    width: 280px;
+    background: var(--blue);
+    color: #fff;
     padding: 10px;
     cursor: pointer;
-    border-radius: 20px;
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+.submit:hover {
+    background: linear-gradient(45deg, #00dbde, #fc00ff);
 }
 
 .submit:focus {
@@ -74,6 +98,7 @@
 
 .signupfield {
     margin-top: 5px;
+    text-align: center;
 }
 
 .emailfield {
@@ -93,13 +118,26 @@
 .socialLogins {
     margin-bottom: 10px;
 }
-
-.socialLogin {
+.socialLogin1,
+.socialLogin2,
+.socialLogin3 {
     padding: 0px 5px;
     width: 40px;
     height: 40px;
     margin: 8px;
     border-radius: 50%;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.socialLogin1 {
+    background-color: #3f568c;
+}
+.socialLogin2 {
+    background-color: #4b9feb;
+}
+.socialLogin3 {
+    background-color: #da5042;
 }
 
 .standardText {
@@ -128,5 +166,6 @@
 }
 
 .text-link {
+    text-align: center;
     font-size: 1.4rem;
 }

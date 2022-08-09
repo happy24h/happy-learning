@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
-import styles from './AddUser.module.scss';
+import styles from '../../Styles/UserInput.module.scss';
 import { addUser } from '~/store/actions/manageActions';
 import { useDispatch } from 'react-redux';
 

@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
-import styles from './EditUser.module.scss';
+import styles from '../../Styles/UserInput.module.scss';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
-import { updateUser } from '~/store/actions/manageActions';
 const cx = classNames.bind(styles);
-function EditUser({ currentUser, setLayout, layout }) {
-    const [state, setState] = useState({
+function EditUser({ updateEditUser, currentUser }) {
+    const [inputs, setInputs] = useState({
         email: '',
         password: '',
         firstName: '',
@@ -14,11 +12,11 @@ function EditUser({ currentUser, setLayout, layout }) {
         phonenumber: '',
         address: '',
     });
-    let dispatch = useDispatch();
     useEffect(() => {
         let user = currentUser;
+        console.log('currentUser--->', user);
         if (user) {
-            setState({
+            setInputs({
                 id: user.id,
                 email: user.email,
                 password: 'harcode',
@@ -30,60 +28,104 @@ function EditUser({ currentUser, setLayout, layout }) {
         }
     }, [currentUser]);
 
-    const handleInputChange = (e) => {
-        let { name, value } = e.target;
-        setState({ ...state, [name]: value });
+    const onChangeInput = (event, id) => {
+        // good code
+        let copyInputs = { ...inputs };
+        copyInputs[id] = event.target.value;
+        setInputs({
+            ...copyInputs,
+        });
     };
-    console.log('state redux---', state);
 
     const handleUpdateUser = () => {
         if (!email || !password || !firstName || !lastName || !phonenumber || !address) {
             toast.warning('Vui lòng nhập đầy đủ thông tin');
         } else {
-            dispatch(updateUser(state));
-            setLayout(!layout);
+            updateEditUser(inputs);
         }
     };
+    let { email, password, firstName, lastName, phonenumber, address } = inputs;
 
-    let { email, password, firstName, lastName, phonenumber, address } = state;
     return (
         <div className={cx('container')}>
             <div className={cx('title')}>Edit User </div>
             <form>
                 <div className={cx('group')}>
-                    <input type="text" required value={email} name="email" onChange={handleInputChange} />
+                    <input
+                        type="text"
+                        required
+                        value={email}
+                        onChange={(event) => {
+                            onChangeInput(event, 'email');
+                        }}
+                    />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Email</label>
                 </div>
                 <div className={cx('group')}>
-                    <input type="text" required value={password} name="password" onChange={handleInputChange} />
+                    <input
+                        type="text"
+                        required
+                        value={password}
+                        onChange={(event) => {
+                            onChangeInput(event, 'password');
+                        }}
+                    />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Password</label>
                 </div>
                 <div className={cx('group')}>
-                    <input type="text" required value={firstName} name="firstName" onChange={handleInputChange} />
+                    <input
+                        type="text"
+                        required
+                        value={firstName}
+                        onChange={(event) => {
+                            onChangeInput(event, 'firstName');
+                        }}
+                    />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>First Name</label>
                 </div>
 
                 <div className={cx('group')}>
-                    <input type="text" required value={lastName} name="lastName" onChange={handleInputChange} />
+                    <input
+                        type="text"
+                        required
+                        value={lastName}
+                        onChange={(event) => {
+                            onChangeInput(event, 'lastName');
+                        }}
+                    />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Last Name</label>
                 </div>
                 <div className={cx('group')}>
-                    <input type="text" required value={phonenumber} name="phonenumber" onChange={handleInputChange} />
+                    <input
+                        type="text"
+                        required
+                        value={phonenumber}
+                        onChange={(event) => {
+                            onChangeInput(event, 'phonenumber');
+                        }}
+                    />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Phone Number</label>
                 </div>
 
                 <div className={cx('group')}>
-                    <input type="text" required value={address} name="address" onChange={handleInputChange} />
+                    <input
+                        type="text"
+                        required
+                        value={address}
+                        onChange={(event) => {
+                            onChangeInput(event, 'address');
+                        }}
+                    />
                     <span className={cx('highlight')}></span>
                     <span className={cx('bar')}></span>
                     <label>Address</label>
