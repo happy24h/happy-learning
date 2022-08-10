@@ -6,6 +6,7 @@ const routes = {
     register: '/register',
     library: '/library',
     lifeSkills: '/lifeSkills',
+    detailBackend: '/detail-backend/:id',
 
     // System
     TableUser: '/system/user-manage',

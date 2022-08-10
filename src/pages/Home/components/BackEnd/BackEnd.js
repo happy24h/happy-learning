@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import * as userService from '~/services/userService';
 import Slider from 'react-slick';
+import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from '../ContentSlider/ContentSlider.module.scss';
 const cx = classNames.bind(styles);
 function BackEnd({ settings }) {
+    const navigate = useNavigate();
     const [dataBackend, setDataBackend] = useState([]);
     useEffect(() => {
         const fetchApi = async () => {
@@ -13,6 +15,10 @@ function BackEnd({ settings }) {
         };
         fetchApi();
     }, []);
+
+    const handleViewDetailBackend = (backend) => {
+        navigate(`detail-backend/${backend.id}`);
+    };
 
     return (
         <div className="section-share section-specialty">
@@ -25,7 +31,11 @@ function BackEnd({ settings }) {
                 <div className={cx('slider')}>
                     <Slider className={cx('container')} {...settings}>
                         {dataBackend.map((item, index) => (
-                            <div key={index} className="section-customize">
+                            <div
+                                key={index}
+                                className="section-customize"
+                                onClick={() => handleViewDetailBackend(item)}
+                            >
                                 <div
                                     className="bg-image section-specialty"
                                     style={{ backgroundImage: `url(${item.image})` }}
