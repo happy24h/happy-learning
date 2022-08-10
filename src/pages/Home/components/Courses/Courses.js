@@ -1,41 +1,33 @@
 import { useState, useEffect } from 'react';
-import * as userService from '~/services/userService';
 import Slider from 'react-slick';
-import { useNavigate } from 'react-router-dom';
+import * as userService from '~/services/userService';
 import classNames from 'classnames/bind';
 import styles from '../ContentSlider/ContentSlider.module.scss';
 const cx = classNames.bind(styles);
-function BackEnd({ settings }) {
-    const navigate = useNavigate();
-    const [dataBackend, setDataBackend] = useState([]);
+function Courses({ settings }) {
+    const [dataCourses, setDataCourses] = useState([]);
+
     useEffect(() => {
         const fetchApi = async () => {
-            let result = await userService.backend();
-            setDataBackend(result);
+            const result = await userService.courses();
+            setDataCourses(result);
         };
         fetchApi();
     }, []);
 
-    const handleViewDetailBackend = (backend) => {
-        navigate(`detail-backend/${backend.id}`);
-    };
-
+    console.log('data frontend', dataCourses);
     return (
         <div className="section-share section-specialty">
             <div className="section-container">
                 <div className="section-header">
-                    <span className="title-section">Lộ trình học Back-end</span>
+                    <span className="title-section">Tất cả các khóa học</span>
                     <button className="btn-section">Xem thêm</button>
                 </div>
 
                 <div className={cx('slider')}>
                     <Slider className={cx('container')} {...settings}>
-                        {dataBackend.map((item, index) => (
-                            <div
-                                key={index}
-                                className="section-customize"
-                                onClick={() => handleViewDetailBackend(item)}
-                            >
+                        {dataCourses.map((item, index) => (
+                            <div key={index} className="section-customize">
                                 <div
                                     className="bg-image section-specialty"
                                     style={{ backgroundImage: `url(${item.image})` }}
@@ -50,4 +42,4 @@ function BackEnd({ settings }) {
     );
 }
 
-export default BackEnd;
+export default Courses;

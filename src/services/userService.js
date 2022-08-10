@@ -11,7 +11,7 @@ export const getAllUsers = async (id) => {
 };
 
 // project user ui
-export const frontend = async () => {
+export const courses = async () => {
     try {
         const res = await httpRequest.get('api/get-specialty');
         return res.data;
@@ -20,7 +20,7 @@ export const frontend = async () => {
     }
 };
 
-export const backend = async () => {
+export const websites = async () => {
     try {
         const res = await httpRequest.get('/api/get-clinic');
         return res.data;

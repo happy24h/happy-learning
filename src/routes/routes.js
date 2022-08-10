@@ -8,7 +8,7 @@ import Login from '~/pages/Login';
 import Register from '~/pages/Register';
 import Library from '~/pages/Library';
 import LifeSkills from '~/pages/LifeSkills';
-import DetailBackend from '~/pages/Home/Detail/Backend/DetailBackend';
+import DetailWebsite from '~/pages/Home/Detail/Website';
 
 // System
 import TableUser from '~/pages/System/Page/Manage/TableUser';
@@ -20,7 +20,7 @@ const publicRouters = [
     { path: config.routes.library, component: Library },
     { path: config.routes.lifeSkills, component: LifeSkills },
     { path: config.routes.learn, component: Learn, changeLayout: HeaderOnly },
-    { path: config.routes.detailBackend, component: DetailBackend, changeLayout: HeaderOnly },
+    { path: config.routes.detailWebsite, component: DetailWebsite, changeLayout: HeaderOnly },
     { path: config.routes.login, component: Login, changeLayout: null },
     { path: config.routes.register, component: Register, changeLayout: null },
 ];

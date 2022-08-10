@@ -1,6 +1,6 @@
 import React from 'react';
-import FrontEnd from '../FrontEnd';
-import BackEnd from '../BackEnd';
+import Courses from '../Courses';
+import Websites from '../Websites';
 import FeaturedPost from '../FeaturedPost';
 
 // Import css files
@@ -29,8 +29,8 @@ export default function ContentSlider() {
     };
     return (
         <div>
-            <FrontEnd settings={settings} />
-            <BackEnd settings={settings} />
+            <Courses settings={settings} />
+            <Websites settings={settings} />
             <FeaturedPost settings={settings} />
         </div>
     );

@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as axios from '~/services/adminService';
 import _ from 'lodash';
-import './DetailBackend.scss';
-function DetailBackend() {
+import './DetailWebsite.scss';
+function DetailWebsite() {
     const [state, setState] = useState({});
     let { id } = useParams();
     console.log('id--->', id);
@@ -14,18 +14,18 @@ function DetailBackend() {
             let res = await axios.getAllDetailClinicById({ id: id });
             if (res && res.errCode === 0) {
                 let data = res.data;
-                let arrBackendId = [];
+                let arrWebsiteId = [];
                 if (data && !_.isEmpty(res.data)) {
                     let arrData = data.doctorClinic;
                     if (arrData && arrData.length > 0) {
                         arrData.map((item) => {
-                            return arrBackendId.push(item.doctorId);
+                            return arrWebsiteId.push(item.doctorId);
                         });
                     }
                 }
                 setState({
-                    dataDetailBackend: res.data,
-                    arrBackendId: arrBackendId,
+                    dataDetailWebsite: res.data,
+                    arrWebsiteId: arrWebsiteId,
                 });
                 console.log(data);
             }
@@ -33,16 +33,16 @@ function DetailBackend() {
         fetchApi();
     }, [id]);
 
-    let { dataDetailBackend } = state;
+    let { dataDetailWebsite } = state;
 
     return (
         <div className="detail-specialty-container">
             <div className="detail-specialty-body">
                 <div className="description-specialty">
-                    {dataDetailBackend && !_.isEmpty(dataDetailBackend) && (
+                    {dataDetailWebsite && !_.isEmpty(dataDetailWebsite) && (
                         <>
-                            <div>{dataDetailBackend.name}</div>
-                            <div dangerouslySetInnerHTML={{ __html: dataDetailBackend.descriptionHTML }}></div>
+                            <div>{dataDetailWebsite.name}</div>
+                            <div dangerouslySetInnerHTML={{ __html: dataDetailWebsite.descriptionHTML }}></div>
                         </>
                     )}
                 </div>
@@ -51,4 +51,4 @@ function DetailBackend() {
     );
 }
 
-export default DetailBackend;
+export default DetailWebsite;

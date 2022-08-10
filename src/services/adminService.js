@@ -29,7 +29,7 @@ export const editUserService = (inputData) => {
     return axios.put('/api/edit-user', inputData);
 };
 
-// DetailBackend
+// Detail websites
 export const getAllDetailClinicById = (data) => {
     return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`);
 };
