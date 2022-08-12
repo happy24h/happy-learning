@@ -29,7 +29,7 @@ export const websites = async () => {
     }
 };
 
-export const featuredPost = async () => {
+export const teacher = async () => {
     try {
         const res = await httpRequest.get('api/top-doctor-home');
         return res.data;

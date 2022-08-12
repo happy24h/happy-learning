@@ -29,7 +29,22 @@ export const editUserService = (inputData) => {
     return axios.put('/api/edit-user', inputData);
 };
 
+// Detail course
+export const getAllDetailSpecialtyById = (data) => {
+    return axios.get(`/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`);
+};
+
+// Detail course province
+export const getAllCodeService = (inputType) => {
+    return axios.get(`/api/allcode?type=${inputType}`);
+};
+
 // Detail websites
 export const getAllDetailClinicById = (data) => {
     return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`);
+};
+
+// Detail teacher
+export const getDetailInforDoctor = (inputId) => {
+    return axios.get(`/api/get-detail-doctor-by-id?id=${inputId}`);
 };

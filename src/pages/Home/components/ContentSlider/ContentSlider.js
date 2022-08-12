@@ -1,7 +1,7 @@
 import React from 'react';
 import Courses from '../Courses';
 import Websites from '../Websites';
-import FeaturedPost from '../FeaturedPost';
+import Teacher from '../Teacher';
 
 // Import css files
 import 'slick-carousel/slick/slick.css';
@@ -31,7 +31,7 @@ export default function ContentSlider() {
         <div>
             <Courses settings={settings} />
             <Websites settings={settings} />
-            <FeaturedPost settings={settings} />
+            <Teacher settings={settings} />
         </div>
     );
 }

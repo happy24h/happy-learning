@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import { useNavigate } from 'react-router-dom';
 import * as userService from '~/services/userService';
 import classNames from 'classnames/bind';
 import styles from '../ContentSlider/ContentSlider.module.scss';
 const cx = classNames.bind(styles);
 function Courses({ settings }) {
+    const navigate = useNavigate();
     const [dataCourses, setDataCourses] = useState([]);
 
     useEffect(() => {
@@ -15,7 +17,11 @@ function Courses({ settings }) {
         fetchApi();
     }, []);
 
-    console.log('data frontend', dataCourses);
+    const handleViewDetailCourses = (item) => {
+        navigate(`detail-course/${item.id}`);
+    };
+
+    // console.log('data courses', dataCourses);
     return (
         <div className="section-share section-specialty">
             <div className="section-container">
@@ -27,7 +33,11 @@ function Courses({ settings }) {
                 <div className={cx('slider')}>
                     <Slider className={cx('container')} {...settings}>
                         {dataCourses.map((item, index) => (
-                            <div key={index} className="section-customize">
+                            <div
+                                key={index}
+                                className="section-customize"
+                                onClick={() => handleViewDetailCourses(item)}
+                            >
                                 <div
                                     className="bg-image section-specialty"
                                     style={{ backgroundImage: `url(${item.image})` }}

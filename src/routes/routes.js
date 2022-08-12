@@ -9,6 +9,8 @@ import Register from '~/pages/Register';
 import Library from '~/pages/Library';
 import LifeSkills from '~/pages/LifeSkills';
 import DetailWebsite from '~/pages/Home/Detail/Website';
+import DetailCourse from '~/pages/Home/Detail/Course';
+import DetailTeacher from '~/pages/Home/Detail/Teacher/DetailTeacher';
 
 // System
 import TableUser from '~/pages/System/Page/Manage/TableUser';
@@ -21,6 +23,8 @@ const publicRouters = [
     { path: config.routes.lifeSkills, component: LifeSkills },
     { path: config.routes.learn, component: Learn, changeLayout: HeaderOnly },
     { path: config.routes.detailWebsite, component: DetailWebsite, changeLayout: HeaderOnly },
+    { path: config.routes.detailCourse, component: DetailCourse, changeLayout: HeaderOnly },
+    { path: config.routes.detailTeacher, component: DetailTeacher, changeLayout: HeaderOnly },
     { path: config.routes.login, component: Login, changeLayout: null },
     { path: config.routes.register, component: Register, changeLayout: null },
 ];

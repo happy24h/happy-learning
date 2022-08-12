@@ -7,6 +7,8 @@ const routes = {
     library: '/library',
     lifeSkills: '/lifeSkills',
     detailWebsite: '/detail-learn-website/:id',
+    detailCourse: '/detail-course/:id',
+    detailTeacher: '/detail-teacher/:id',
 
     // System
     TableUser: '/system/user-manage',
