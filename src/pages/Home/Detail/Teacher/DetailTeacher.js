@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as axios from '~/services/adminService';
+import TeacherSchedule from './TeacherSchedule';
 import './DetailTeacher.scss';
 
 function DetailTeacher() {
@@ -8,10 +9,11 @@ function DetailTeacher() {
     const [state, setState] = useState({
         detailTeacher: {},
     });
-
-    console.log('state', state);
+    const [currentTeacherId, setCurrentTeacher] = useState();
 
     useEffect(() => {
+        setCurrentTeacher(id);
+
         const fetchApi = async () => {
             let res = await axios.getDetailInforDoctor(id);
             if (res && res.errCode === 0) {
@@ -24,6 +26,8 @@ function DetailTeacher() {
     }, [id]);
 
     let { detailTeacher } = state;
+    console.log('state---', state);
+    console.log('current---', currentTeacherId);
 
     return (
         <div className="doctor-detail-container">
@@ -44,18 +48,15 @@ function DetailTeacher() {
                 </div>
             </div>
             <div className="schedule-doctor">
-                {/* <div className="content-left">
-            <DoctorSchedule
-                doctorIdFromParent={this.state.currentDoctorId}
-            />
-
-        </div>
-        <div className="content-right">
+                <div className="content-left">
+                    <TeacherSchedule doctorIdFromParent={currentTeacherId} />
+                </div>
+                {/* <div className="content-right">
             <DoctorExtraInfor
                 doctorIdFromParent={this.state.currentDoctorId}
             />
 
-        </div> */}
+        </div>  */}
             </div>
             <div className="detail-infor-doctor">
                 {detailTeacher && detailTeacher.Markdown && detailTeacher.Markdown.contentHTML && (

@@ -41,11 +41,13 @@ function Teacher({ settings }) {
                                     key={index}
                                     onClick={() => handleViewDetailTeacher(item)}
                                 >
-                                    <div
-                                        className="bg-image section-specialty"
-                                        style={{ backgroundImage: `url(${imageBase64})` }}
-                                    ></div>
-                                    <div className="name-specialty">{`${item.lastName} ${item.firstName}`}</div>
+                                    <div className="item-center">
+                                        <div
+                                            className="bg-image section-outstanding-doctor"
+                                            style={{ backgroundImage: `url(${imageBase64})` }}
+                                        ></div>
+                                        <div className="name-specialty">{`${item.lastName} ${item.firstName}`}</div>
+                                    </div>
                                 </div>
                             );
                         })}

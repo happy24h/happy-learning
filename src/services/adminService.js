@@ -48,3 +48,8 @@ export const getAllDetailClinicById = (data) => {
 export const getDetailInforDoctor = (inputId) => {
     return axios.get(`/api/get-detail-doctor-by-id?id=${inputId}`);
 };
+
+// Detail teacher by date
+export const getScheduleDoctorByDate = (doctorId, date) => {
+    return axios.get(`/api/get-schedule-doctor-by-date?doctorId=${doctorId}&date=${date}`);
+};
