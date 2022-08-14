@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as axios from '~/services/adminService';
 import TeacherSchedule from './TeacherSchedule';
+import InfoAboutTeachers from './InfoAboutTeachers';
 import './DetailTeacher.scss';
 
 function DetailTeacher() {
@@ -9,7 +10,7 @@ function DetailTeacher() {
     const [state, setState] = useState({
         detailTeacher: {},
     });
-    const [currentTeacherId, setCurrentTeacher] = useState();
+    const [currentTeacherId, setCurrentTeacher] = useState(-1);
 
     useEffect(() => {
         setCurrentTeacher(id);
@@ -26,8 +27,6 @@ function DetailTeacher() {
     }, [id]);
 
     let { detailTeacher } = state;
-    console.log('state---', state);
-    console.log('current---', currentTeacherId);
 
     return (
         <div className="doctor-detail-container">
@@ -51,12 +50,9 @@ function DetailTeacher() {
                 <div className="content-left">
                     <TeacherSchedule doctorIdFromParent={currentTeacherId} />
                 </div>
-                {/* <div className="content-right">
-            <DoctorExtraInfor
-                doctorIdFromParent={this.state.currentDoctorId}
-            />
-
-        </div>  */}
+                <div className="content-right">
+                    <InfoAboutTeachers doctorIdFromParent={currentTeacherId} />
+                </div>
             </div>
             <div className="detail-infor-doctor">
                 {detailTeacher && detailTeacher.Markdown && detailTeacher.Markdown.contentHTML && (

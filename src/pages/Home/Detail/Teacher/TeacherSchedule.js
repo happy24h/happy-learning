@@ -6,16 +6,16 @@ import moment from 'moment';
 import localization from 'moment/locale/vi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './TeacherSchedule.scss';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faHandPointUp } from '@fortawesome/free-solid-svg-icons';
 function TeacherSchedule({ doctorIdFromParent }) {
     const [availableTime, setAvailableTime] = useState({ allAvailableTime: [] });
 
     const [days, setDays] = useState([]);
 
-    console.log('doctorId:', doctorIdFromParent);
+    // console.log('doctorId:', doctorIdFromParent);
 
-    console.log('days: ---', days);
-    console.log('availableTime: ---', availableTime);
+    // console.log('days: ---', days);
+    // console.log('availableTime: ---', availableTime);
 
     useEffect(() => {
         let allDays = getArrDays();
@@ -54,10 +54,21 @@ function TeacherSchedule({ doctorIdFromParent }) {
     };
     getArrDays();
 
+    const handleOnChangeSelect = async (event) => {
+        if (doctorIdFromParent && doctorIdFromParent !== -1) {
+            let doctorId = doctorIdFromParent;
+            let date = event.target.value;
+            let res = await axios.getScheduleDoctorByDate(doctorId, date);
+            if (res && res.errCode === 0) {
+                setAvailableTime(res.data);
+            }
+        }
+    };
+
     return (
         <div className="doctor-schedule-container">
             <div className="all-schedule">
-                <select>
+                <select onChange={(event) => handleOnChangeSelect(event)}>
                     {days &&
                         days.length > 0 &&
                         days.map((item, index) => {
@@ -91,15 +102,13 @@ function TeacherSchedule({ doctorIdFromParent }) {
 
                             <div className="book-free">
                                 <span>
-                                    {/* <FormattedMessage id="patient.detail-doctor.choose" /> */}
-                                    <i className="far fa-hand-point-up"></i>
-                                    {/* <FormattedMessage id="patient.detail-doctor.book-free" /> */}
+                                    Chọn <FontAwesomeIcon icon={faHandPointUp} /> và đặt (miễn phí)
                                 </span>
                             </div>
                         </>
                     ) : (
                         <div className="no-schedule">
-                            {/* <FormattedMessage id="patient.detail-doctor.no-schedule" /> */}
+                            Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian.
                         </div>
                     )}
                 </div>

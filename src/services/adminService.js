@@ -53,3 +53,8 @@ export const getDetailInforDoctor = (inputId) => {
 export const getScheduleDoctorByDate = (doctorId, date) => {
     return axios.get(`/api/get-schedule-doctor-by-date?doctorId=${doctorId}&date=${date}`);
 };
+
+// Info about teachers
+export const getExtraInforDoctorById = (doctorId) => {
+    return axios.get(`/api/get-extra-infor-doctor-by-id?doctorId=${doctorId}`);
+};
