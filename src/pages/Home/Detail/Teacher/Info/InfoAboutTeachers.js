@@ -3,17 +3,17 @@ import * as axios from '~/services/adminService';
 import NumberFormat from 'react-number-format';
 import './InfoAboutTeachers.scss';
 
-function InfoAboutTeachers({ doctorIdFromParent }) {
+function InfoAboutTeachers({ teacherIdFromParent }) {
     const [infoTeacher, setInfoTeacher] = useState();
     const [showDetail, setShowDetail] = useState(false);
     console.log('state--->', infoTeacher);
     useEffect(() => {
         const fetchApi = async () => {
-            let res = await axios.getExtraInforDoctorById(doctorIdFromParent);
+            let res = await axios.getExtraInforDoctorById(teacherIdFromParent);
             setInfoTeacher(res.data);
         };
         fetchApi();
-    }, [doctorIdFromParent]);
+    }, [teacherIdFromParent]);
 
     return (
         <div className="doctor-extra-infor-container">

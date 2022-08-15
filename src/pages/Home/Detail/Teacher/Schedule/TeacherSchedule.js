@@ -7,28 +7,23 @@ import localization from 'moment/locale/vi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './TeacherSchedule.scss';
 import { faCalendarAlt, faHandPointUp } from '@fortawesome/free-solid-svg-icons';
-function TeacherSchedule({ doctorIdFromParent }) {
+function TeacherSchedule({ teacherIdFromParent }) {
     const [availableTime, setAvailableTime] = useState({ allAvailableTime: [] });
 
     const [days, setDays] = useState([]);
-
-    // console.log('doctorId:', doctorIdFromParent);
-
-    // console.log('days: ---', days);
-    // console.log('availableTime: ---', availableTime);
 
     useEffect(() => {
         let allDays = getArrDays();
         console.log('all days 0:', allDays[0].value);
         const fetchApi = async () => {
-            let res = await axios.getScheduleDoctorByDate(doctorIdFromParent, allDays[0].value);
+            let res = await axios.getScheduleDoctorByDate(teacherIdFromParent, allDays[0].value);
             setAvailableTime(res.data);
         };
 
         setDays(allDays);
         fetchApi();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [doctorIdFromParent]);
+    }, [teacherIdFromParent]);
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -55,8 +50,8 @@ function TeacherSchedule({ doctorIdFromParent }) {
     getArrDays();
 
     const handleOnChangeSelect = async (event) => {
-        if (doctorIdFromParent && doctorIdFromParent !== -1) {
-            let doctorId = doctorIdFromParent;
+        if (teacherIdFromParent && teacherIdFromParent !== -1) {
+            let doctorId = teacherIdFromParent;
             let date = event.target.value;
             let res = await axios.getScheduleDoctorByDate(doctorId, date);
             if (res && res.errCode === 0) {

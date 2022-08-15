@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as axios from '~/services/adminService';
-import TeacherSchedule from './TeacherSchedule';
-import InfoAboutTeachers from './InfoAboutTeachers';
+import TeacherSchedule from './Schedule/TeacherSchedule';
+import InfoAboutTeachers from './Info/InfoAboutTeachers';
 import './DetailTeacher.scss';
 
 function DetailTeacher() {
@@ -48,10 +48,10 @@ function DetailTeacher() {
             </div>
             <div className="schedule-doctor">
                 <div className="content-left">
-                    <TeacherSchedule doctorIdFromParent={currentTeacherId} />
+                    <TeacherSchedule teacherIdFromParent={currentTeacherId} />
                 </div>
                 <div className="content-right">
-                    <InfoAboutTeachers doctorIdFromParent={currentTeacherId} />
+                    <InfoAboutTeachers teacherIdFromParent={currentTeacherId} />
                 </div>
             </div>
             <div className="detail-infor-doctor">
