@@ -5,6 +5,7 @@ import DefaultLayout from './layouts/DefaultLayout';
 import SystemLayout from './pages/System/SystemLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.min.css';
+import './assets/styles/grid.scss';
 
 function App() {
     return (

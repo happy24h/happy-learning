@@ -4,6 +4,7 @@ import moment from 'moment';
 // localization giúp moment mặc định tiếng việt
 // eslint-disable-next-line no-unused-vars
 import localization from 'moment/locale/vi';
+import Modal from '../Modal/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './TeacherSchedule.scss';
 import { faCalendarAlt, faHandPointUp } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +12,7 @@ function TeacherSchedule({ teacherIdFromParent }) {
     const [availableTime, setAvailableTime] = useState({ allAvailableTime: [] });
 
     const [days, setDays] = useState([]);
+    const [modal, setModal] = useState(false);
 
     useEffect(() => {
         let allDays = getArrDays();
@@ -61,54 +63,57 @@ function TeacherSchedule({ teacherIdFromParent }) {
     };
 
     return (
-        <div className="doctor-schedule-container">
-            <div className="all-schedule">
-                <select onChange={(event) => handleOnChangeSelect(event)}>
-                    {days &&
-                        days.length > 0 &&
-                        days.map((item, index) => {
-                            return (
-                                <option value={item.value} key={index}>
-                                    {item.label}
-                                </option>
-                            );
-                        })}
-                </select>
-            </div>
-            <div className="all-available-time">
-                <div className="text-calendar">
-                    <FontAwesomeIcon icon={faCalendarAlt} />
-                    <span>Đăng ký tư vấn</span>
+        <>
+            <div className="doctor-schedule-container">
+                <div className="all-schedule">
+                    <select onChange={(event) => handleOnChangeSelect(event)}>
+                        {days &&
+                            days.length > 0 &&
+                            days.map((item, index) => {
+                                return (
+                                    <option value={item.value} key={index}>
+                                        {item.label}
+                                    </option>
+                                );
+                            })}
+                    </select>
                 </div>
-                <div className="time-content">
-                    {availableTime && availableTime.length > 0 ? (
-                        <>
-                            <div className="time-content-btns">
-                                {availableTime.map((item, index) => {
-                                    let timeDisplay = item.timeTypeData.valueVi;
+                <div className="all-available-time">
+                    <div className="text-calendar">
+                        <FontAwesomeIcon icon={faCalendarAlt} />
+                        <span>Đăng ký tư vấn</span>
+                    </div>
+                    <div className="time-content">
+                        {availableTime && availableTime.length > 0 ? (
+                            <>
+                                <div className="time-content-btns">
+                                    {availableTime.map((item, index) => {
+                                        let timeDisplay = item.timeTypeData.valueVi;
 
-                                    return (
-                                        <button key={index} className="btn-vie">
-                                            {timeDisplay}
-                                        </button>
-                                    );
-                                })}
-                            </div>
+                                        return (
+                                            <button key={index} className="btn-vie" onClick={() => setModal(true)}>
+                                                {timeDisplay}
+                                            </button>
+                                        );
+                                    })}
+                                </div>
 
-                            <div className="book-free">
-                                <span>
-                                    Chọn <FontAwesomeIcon icon={faHandPointUp} /> và đặt (miễn phí)
-                                </span>
+                                <div className="book-free">
+                                    <span>
+                                        Chọn <FontAwesomeIcon icon={faHandPointUp} /> và đặt (miễn phí)
+                                    </span>
+                                </div>
+                            </>
+                        ) : (
+                            <div className="no-schedule">
+                                Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian.
                             </div>
-                        </>
-                    ) : (
-                        <div className="no-schedule">
-                            Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian.
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+            {modal && <Modal setModal={setModal} />}
+        </>
     );
 }
 
