@@ -13,6 +13,7 @@ function TeacherSchedule({ teacherIdFromParent }) {
 
     const [days, setDays] = useState([]);
     const [modal, setModal] = useState(false);
+    const [dataTime, setDataTime] = useState();
 
     useEffect(() => {
         let allDays = getArrDays();
@@ -62,6 +63,12 @@ function TeacherSchedule({ teacherIdFromParent }) {
         }
     };
 
+    const handleClickScheduleTime = (time) => {
+        setModal(true);
+        setDataTime(time);
+        console.log('hoi v.anh time:', time);
+    };
+
     return (
         <>
             <div className="doctor-schedule-container">
@@ -91,7 +98,11 @@ function TeacherSchedule({ teacherIdFromParent }) {
                                         let timeDisplay = item.timeTypeData.valueVi;
 
                                         return (
-                                            <button key={index} className="btn-vie" onClick={() => setModal(true)}>
+                                            <button
+                                                key={index}
+                                                className="btn-vie"
+                                                onClick={() => handleClickScheduleTime(item)}
+                                            >
                                                 {timeDisplay}
                                             </button>
                                         );
@@ -112,7 +123,7 @@ function TeacherSchedule({ teacherIdFromParent }) {
                     </div>
                 </div>
             </div>
-            {modal && <Modal setModal={setModal} />}
+            {modal && <Modal setModal={setModal} dataTime={dataTime} />}
         </>
     );
 }
