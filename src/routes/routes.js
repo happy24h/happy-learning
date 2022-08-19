@@ -13,8 +13,8 @@ import DetailCourse from '~/pages/Home/Detail/Course';
 import DetailTeacher from '~/pages/Home/Detail/Teacher/DetailTeacher';
 
 // System
-import TableUser from '~/pages/System/Page/Manage/TableUser';
-import ManageRedux from '~/pages/System/Page/ManageRedux/TableUser';
+import TableUser from '~/layouts/System/Page/Manage/TableUser';
+import ManageRedux from '~/layouts/System/Page/ManageRedux/TableUser';
 
 const publicRouters = [
     { path: config.routes.home, component: Home },

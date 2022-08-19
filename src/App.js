@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { privateRoutes, publicRouters } from './routes';
 import DefaultLayout from './layouts/DefaultLayout';
-import SystemLayout from './pages/System/SystemLayout';
+import SystemLayout from './layouts/System/SystemLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.min.css';
 import './assets/styles/grid.scss';

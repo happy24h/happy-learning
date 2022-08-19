@@ -37,7 +37,7 @@ function TableUser() {
     return (
         <div className="container">
             {layout ? <AddUser /> : <EditUser currentUser={edit.currentEdit} layout={layout} setLayout={setLayout} />}
-            <div className="row">
+            <div>
                 <table id="TableManageUser">
                     <tbody>
                         <tr>

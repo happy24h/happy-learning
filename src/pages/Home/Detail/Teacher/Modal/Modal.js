@@ -121,13 +121,12 @@ function Modal({ setModal, dataTime }, props) {
             ...prev,
             isShowLoading: false,
         }));
-        setModal(false);
 
         if (res && res.errCode === 0) {
-            toast.success('Booking a new appointment succeed!');
+            toast.success('Đặt lịch hẹn mới thành công !');
             setModal(false);
         } else {
-            toast.error('Booking a new appointment error');
+            toast.error('Vui lòng nhập đầy đủ thông tin !');
         }
     };
 

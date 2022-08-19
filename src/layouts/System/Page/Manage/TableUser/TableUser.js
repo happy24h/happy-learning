@@ -57,7 +57,7 @@ function TableUser() {
             ) : (
                 <EditUser currentUser={edit.currentEdit} updateEditUser={updateEditUser} />
             )}
-            <div className="row">
+            <div>
                 <table id="TableManageUser">
                     <tbody>
                         <tr>
