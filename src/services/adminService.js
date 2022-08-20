@@ -34,7 +34,7 @@ export const getAllDetailSpecialtyById = (data) => {
     return axios.get(`/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`);
 };
 
-// Detail course province
+// Detail course province || time
 export const getAllCodeService = (inputType) => {
     return axios.get(`/api/allcode?type=${inputType}`);
 };
@@ -66,4 +66,9 @@ export const getProfileDoctorById = (doctorId) => {
 
 export const postPatientBookAppointment = (data) => {
     return axios.post('/api/patient-book-appointment', data);
+};
+
+// schedule all teacher
+export const getAllDoctors = () => {
+    return axios.get(`/api/get-all-doctors`);
 };

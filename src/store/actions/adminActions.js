@@ -25,3 +25,47 @@ export const fetchGenderSuccess = (genderData) => ({
 export const fetchGenderFailed = () => ({
     type: types.FETCH_GENDER_FAILED,
 });
+
+export const fetchAllDoctors = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await axios.getAllDoctors();
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: types.FETCH_ALL_DOCTORS_SUCCESS,
+                    dataDr: res.data,
+                });
+            } else {
+                dispatch({
+                    type: types.FETCH_ALL_DOCTORS_FAILED,
+                });
+            }
+        } catch (e) {
+            dispatch({
+                type: types.FETCH_ALL_DOCTORS_FAILED,
+            });
+        }
+    };
+};
+
+export const fetchAllScheduleTime = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await axios.getAllCodeService('TIME');
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: types.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
+                    dataTime: res.data,
+                });
+            } else {
+                dispatch({
+                    type: types.FETCH_ALLCODE_SCHEDULE_TIME_FAILED,
+                });
+            }
+        } catch (e) {
+            dispatch({
+                type: types.FETCH_ALLCODE_SCHEDULE_TIME_FAILED,
+            });
+        }
+    };
+};

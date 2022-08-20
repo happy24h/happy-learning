@@ -33,6 +33,30 @@ const adminReducer = (state = initialState, action) => {
                 ...state,
             };
 
+        case types.FETCH_ALL_DOCTORS_SUCCESS:
+            state.allDoctors = action.dataDr;
+            return {
+                ...state,
+            };
+
+        case types.FETCH_ALL_DOCTORS_FAILED:
+            state.allDoctors = [];
+            return {
+                ...state,
+            };
+
+        case types.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS:
+            state.allScheduleTime = action.dataTime;
+            return {
+                ...state,
+            };
+
+        case types.FETCH_ALLCODE_SCHEDULE_TIME_FAILED:
+            state.allScheduleTime = [];
+            return {
+                ...state,
+            };
+
         default:
             return state;
     }

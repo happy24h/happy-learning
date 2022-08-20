@@ -15,6 +15,7 @@ import DetailTeacher from '~/pages/Home/Detail/Teacher/DetailTeacher';
 // System
 import TableUser from '~/layouts/System/Page/Manage/TableUser';
 import ManageRedux from '~/layouts/System/Page/ManageRedux/TableUser';
+import ScheduleTeacher from '~/layouts/System/Page/ScheduleTeacher';
 
 const publicRouters = [
     { path: config.routes.home, component: Home },
@@ -32,6 +33,7 @@ const publicRouters = [
 const privateRoutes = [
     { path: config.routes.TableUser, component: TableUser },
     { path: config.routes.manageRedux, component: ManageRedux },
+    { path: config.routes.scheduleTeacher, component: ScheduleTeacher },
 ];
 
 export { publicRouters, privateRoutes };

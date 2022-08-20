@@ -27,7 +27,7 @@ function Sidebar() {
             data: [
                 {
                     title: 'Library users',
-                    to: '/',
+                    to: '/schedule-teacher',
                 },
                 {
                     title: 'React library',
