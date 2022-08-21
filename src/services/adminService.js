@@ -72,3 +72,8 @@ export const postPatientBookAppointment = (data) => {
 export const getAllDoctors = () => {
     return axios.get(`/api/get-all-doctors`);
 };
+
+// save time schedule teacher
+export const saveBulkScheduleDoctor = (data) => {
+    return axios.post('/api/bulk-create-schedule', data);
+};

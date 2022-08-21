@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import * as actions from '~/store/actions/adminActions';
 import Button from '~/components/Button';
 import './ScheduleTeacher.scss';
+import { toast } from 'react-toastify';
+import * as axios from '~/services/adminService';
+
+import _ from 'lodash';
 function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllScheduleTime }) {
     const [state, setState] = useState({
         // selectedDoctor: {},
         selectedDoctor: '',
-        currentDate: '',
+        currentDate: -1,
 
         renderTime: [],
         listDoctor: [],
@@ -35,14 +39,13 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [a]);
 
+    // active nút button time
     const handleClickBtnTime = (time) => {
         console.log('time btn: ', time);
         if (renderTime && renderTime.length > 0) {
             renderTime = renderTime.map((item) => {
                 if (item.id === time.id) {
                     return (item.isActive = !item.isActive);
-
-                    // setState((prev) => ({ ...prev, isSelected: true }));
                 }
                 return item;
             });
@@ -58,11 +61,54 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
         setState({ ...state, [name]: value });
     };
 
-    console.log('day la all doctors:', allDoctors);
-    console.log('day la allScheduleTime:', allScheduleTime);
-    let { renderTime, listDoctor } = state;
+    const handleSaveSchedule = async () => {
+        let result = [];
 
-    console.log('list state:', state);
+        if (!currentDate) {
+            toast.error('Invalid date!');
+        }
+        if (selectedDoctor && _.isEmpty(selectedDoctor)) {
+            toast.error('Invalid selected teacher!');
+        }
+
+        let formatDate = new Date(currentDate).getTime();
+
+        if (renderTime && renderTime.length > 0) {
+            let filterSelectedTime = renderTime.filter((item) => item.isActive === true);
+            console.log('filterSelectedTime', filterSelectedTime);
+            filterSelectedTime.map((item, index) => {
+                let object = {};
+                object.doctorId = +selectedDoctor;
+                object.date = formatDate;
+                object.timeType = item.keyMap;
+                result.push(object);
+            });
+        } else {
+            toast.error('Invalid selected time!');
+            return;
+        }
+        console.log('result:', result);
+
+        let res = await axios.saveBulkScheduleDoctor({
+            arrSchedule: result,
+            doctorId: +selectedDoctor,
+            formatedDate: formatDate,
+        });
+
+        console.log('save schedule teacher >>> res: ', res);
+
+        if (res && res.errCode === 0) {
+            toast.success('Save info succeed!');
+        } else {
+            toast.error('error save schedule doctor', res);
+        }
+    };
+
+    let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
+    let { selectedDoctor, renderTime, listDoctor, currentDate } = state;
+
+    // console.log('list state:', state);
+
     return (
         <div className="manage-schedule-container">
             <div className="m-s-title">QUẢN LÝ KẾ HOẠCH KHÁM BỆNH CỦA BÁC SĨ</div>
@@ -86,9 +132,10 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
                         <input
                             type="date"
                             className="form-control"
-                            value={state.birthday}
+                            value={state.currentDate}
                             onChange={handleInputChange}
                             name="currentDate"
+                            minDate={yesterday}
                             required
                         />
                     </div>
@@ -111,7 +158,9 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
                     </div>
 
                     <div className="col l-12 ">
-                        <Button primary>Xác nhận</Button>
+                        <Button primary onClick={() => handleSaveSchedule()}>
+                            Xác nhận
+                        </Button>
                     </div>
                 </div>
             </div>
