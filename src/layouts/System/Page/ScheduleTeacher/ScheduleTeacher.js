@@ -5,6 +5,8 @@ import Button from '~/components/Button';
 import './ScheduleTeacher.scss';
 import { toast } from 'react-toastify';
 import * as axios from '~/services/adminService';
+import * as moment from 'moment';
+// import Moment from 'react-moment';
 
 import _ from 'lodash';
 function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllScheduleTime }) {
@@ -71,7 +73,10 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
             toast.error('Invalid selected teacher!');
         }
 
-        let formatDate = new Date(currentDate).getTime();
+        let dataTime = moment(new Date(currentDate)).format('YYYY-MM-DD');
+
+        let m = dataTime + 'T17:00:00.000Z';
+        let formatDate = moment(m).unix() * 1000;
 
         if (renderTime && renderTime.length > 0) {
             let filterSelectedTime = renderTime.filter((item) => item.isActive === true);
@@ -81,7 +86,7 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
                 object.doctorId = +selectedDoctor;
                 object.date = formatDate;
                 object.timeType = item.keyMap;
-                result.push(object);
+                return result.push(object);
             });
         } else {
             toast.error('Invalid selected time!');
@@ -104,7 +109,6 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
         }
     };
 
-    let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
     let { selectedDoctor, renderTime, listDoctor, currentDate } = state;
 
     // console.log('list state:', state);
@@ -135,7 +139,7 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
                             value={state.currentDate}
                             onChange={handleInputChange}
                             name="currentDate"
-                            minDate={yesterday}
+                            dateformat="YYYY-MM-DD"
                             required
                         />
                     </div>
