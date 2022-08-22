@@ -27,6 +27,11 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
     if (allScheduleTime !== state.renderTime) {
         a += 2;
     }
+    if (state.renderTime.length === 0) {
+        a = setTimeout(() => {
+            return 1;
+        }, 1000);
+    }
     useEffect(() => {
         fetAllDoctors();
         fetchAllScheduleTime();
@@ -73,8 +78,7 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
             toast.error('Invalid selected teacher!');
         }
 
-        let dataTime = moment(new Date(currentDate)).format('YYYY-MM-DD');
-
+        let dataTime = moment(new Date(new Date(currentDate).valueOf() - 86400000)).format('YYYY-MM-DD');
         let m = dataTime + 'T17:00:00.000Z';
         let formatDate = moment(m).unix() * 1000;
 
@@ -122,6 +126,7 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
                         <label>Chọn Bác Sĩ </label>
 
                         <select className="form-control l-12" name="selectedDoctor" onChange={handleInputChange}>
+                            <option value="">Choose...</option>
                             {listDoctor.map((item, index) => {
                                 return (
                                     <option key={index} value={item.id}>
