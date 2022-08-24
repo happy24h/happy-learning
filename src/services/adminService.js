@@ -77,3 +77,8 @@ export const getAllDoctors = () => {
 export const saveBulkScheduleDoctor = (data) => {
     return axios.post('/api/bulk-create-schedule', data);
 };
+
+//save new classroom
+export const createNewClinic = (data) => {
+    return axios.post('/api/create-new-clinic', data);
+};

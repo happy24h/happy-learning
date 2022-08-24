@@ -2,17 +2,17 @@ import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
 import MenuItem from './Menu/MenuItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faHome, faLightbulb } from '@fortawesome/free-solid-svg-icons';
-import { faBlogger } from '@fortawesome/free-brands-svg-icons';
+import { faCircleInfo, faLightbulb, faUser, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+// import { faBlogger } from '@fortawesome/free-brands-svg-icons';
 const cx = classNames.bind(styles);
 function Sidebar() {
     const MENU_ITEMS = [
         {
-            icon: <FontAwesomeIcon icon={faHome} />,
-            title: 'Home',
+            icon: <FontAwesomeIcon icon={faUser} />,
+            title: 'Người dùng',
             data: [
                 {
-                    title: 'CRUD User',
+                    title: 'Danh sách người dùng',
                     to: '/system/user-manage',
                 },
                 {
@@ -22,25 +22,29 @@ function Sidebar() {
             ],
         },
         {
-            icon: <FontAwesomeIcon icon={faBook} />,
-            title: 'Library',
+            icon: <FontAwesomeIcon icon={faUserGraduate} />,
+            title: 'Giáo viên',
             data: [
                 {
-                    title: 'Library users',
+                    title: 'Thêm lịch hẹn',
                     to: '/schedule-teacher',
                 },
                 {
-                    title: 'React library',
+                    title: 'Thêm thông tin giáo viên',
                     to: '/',
                 },
             ],
         },
         {
-            icon: <FontAwesomeIcon icon={faBlogger} />,
-            title: 'Blog',
+            icon: <FontAwesomeIcon icon={faCircleInfo} />,
+            title: 'Thông tin',
             data: [
                 {
-                    title: 'Blog users',
+                    title: 'Phòng học',
+                    to: '/classroom-manage',
+                },
+                {
+                    title: 'Chuyên môn',
                     to: '/',
                 },
             ],

@@ -14,6 +14,7 @@ const routes = {
     TableUser: '/system/user-manage',
     manageRedux: '/system/user-redux',
     scheduleTeacher: '/schedule-teacher',
+    classroom: '/classroom-manage',
 };
 
 export default routes;
