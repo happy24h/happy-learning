@@ -24,7 +24,7 @@ function Websites({ settings }) {
         <div className="section-share section-specialty">
             <div className="section-container">
                 <div className="section-header">
-                    <span className="title-section">Trang Website học lập trình</span>
+                    <span className="title-section">Tổng hợp trang tự học lập trình</span>
                     <button className="btn-section">Xem thêm</button>
                 </div>
 

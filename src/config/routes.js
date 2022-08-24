@@ -15,6 +15,7 @@ const routes = {
     manageRedux: '/system/user-redux',
     scheduleTeacher: '/schedule-teacher',
     classroom: '/classroom-manage',
+    specialty: '/specialty-manage',
 };
 
 export default routes;

@@ -4,16 +4,15 @@ import MdEditor from 'react-markdown-editor-lite';
 import CommonUtils from '~/utils/CommonUtils';
 import { toast } from 'react-toastify';
 import * as axios from '~/services/adminService';
-import './Classroom.scss';
+
+import './Specialty.scss';
 // Import styles
 import 'react-markdown-editor-lite/lib/index.css';
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
-
-function Classroom() {
+function Specialty() {
     const [state, setState] = useState({
         name: '',
-        address: '',
         imageBase64: '',
         descriptionHTML: '',
         descriptionMarkdown: '',
@@ -46,30 +45,28 @@ function Classroom() {
         }));
     };
 
-    const handleSaveNewClinic = async () => {
-        let res = await axios.createNewClinic(state);
+    const handleSaveNewSpecialty = async () => {
+        let res = await axios.createNewSpecialty(state);
         if (res && res.errCode === 0) {
-            toast.success('Thêm dữ liệu thành công!');
+            toast.success('Add new clinic succeeds!');
             setState({
                 name: '',
                 imageBase64: '',
-                address: '',
                 descriptionHTML: '',
                 descriptionMarkdown: '',
             });
         } else {
-            toast.error('Có cái gì đó không đúng!');
+            toast.error('Something wrongs...');
             console.log('hoi v.anh check res:', res);
         }
     };
-
     return (
         <div className="manage-specialty-container">
-            <div className="ms-title">Thêm trang tự học lập trình</div>
+            <div className="ms-title">THÊM KHÓA HỌC</div>
 
             <div className="add-new-specialty row">
                 <div className="col l-6 form-group">
-                    <label>Tên phòng khám</label>
+                    <label>Tên khóa học</label>
                     <input
                         className="form-control"
                         type="text"
@@ -78,18 +75,10 @@ function Classroom() {
                     />
                 </div>
                 <div className="col l-6 form-group image-classroom">
-                    <label>Ảnh phòng khám</label>
+                    <label>Ảnh khóa học</label>
                     <input className="form-control-file" type="file" onChange={(event) => handleOnchangeImage(event)} />
                 </div>
-                <div className="col l-6 form-group">
-                    <label>Địa chỉ phòng khám</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        value={state.address}
-                        onChange={(event) => handleOnChangeInput(event, 'address')}
-                    />
-                </div>
+
                 <div className="col l-12">
                     <MdEditor
                         style={{ height: '300px' }}
@@ -99,7 +88,7 @@ function Classroom() {
                     />
                 </div>
                 <div className="col l-12">
-                    <button className="btn-save-specialty" onClick={() => handleSaveNewClinic()}>
+                    <button className="btn-save-specialty" onClick={() => handleSaveNewSpecialty()}>
                         Lưu thông tin
                     </button>
                 </div>
@@ -108,4 +97,4 @@ function Classroom() {
     );
 }
 
-export default Classroom;
+export default Specialty;

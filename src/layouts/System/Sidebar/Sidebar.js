@@ -45,7 +45,7 @@ function Sidebar() {
                 },
                 {
                     title: 'Chuyên môn',
-                    to: '/',
+                    to: '/specialty-manage',
                 },
             ],
         },
