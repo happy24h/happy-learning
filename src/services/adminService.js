@@ -87,3 +87,16 @@ export const createNewClinic = (data) => {
 export const createNewSpecialty = (data) => {
     return axios.post('/api/create-new-specialty', data);
 };
+
+export const getAllClinic = () => {
+    return axios.get(`/api/get-clinic`);
+};
+
+export const getAllSpecialty = () => {
+    return axios.get(`/api/get-specialty`);
+};
+
+// save info teacher
+export const saveDetailDoctorService = (data) => {
+    return axios.post('/api/save-infor-doctors', data);
+};

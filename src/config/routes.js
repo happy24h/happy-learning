@@ -16,6 +16,7 @@ const routes = {
     scheduleTeacher: '/schedule-teacher',
     classroom: '/classroom-manage',
     specialty: '/specialty-manage',
+    teacherInfo: '/teacher-info-manage',
 };
 
 export default routes;

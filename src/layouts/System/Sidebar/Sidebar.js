@@ -31,7 +31,7 @@ function Sidebar() {
                 },
                 {
                     title: 'Thêm thông tin giáo viên',
-                    to: '/',
+                    to: '/teacher-info-manage',
                 },
             ],
         },
