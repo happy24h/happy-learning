@@ -69,6 +69,42 @@ const adminReducer = (state = initialState, action) => {
                 ...state,
             };
 
+        case types.FETCH_POSITION_SUCCESS:
+            state.positions = action.data;
+            return {
+                ...state,
+            };
+
+        case types.FETCH_POSITION_FAILED:
+            state.positions = [];
+            return {
+                ...state,
+            };
+
+        case types.FETCH_ROLE_SUCCESS:
+            state.roles = action.data;
+            return {
+                ...state,
+            };
+
+        case types.FETCH_ROLE_FAILED:
+            state.roles = [];
+            return {
+                ...state,
+            };
+
+        case types.FETCH_ALL_USERS_SUCCESS:
+            state.users = action.users;
+            return {
+                ...state,
+            };
+
+        case types.FETCH_ALL_USERS_FAILED:
+            state.users = [];
+            return {
+                ...state,
+            };
+
         default:
             return state;
     }

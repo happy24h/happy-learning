@@ -17,6 +17,7 @@ const routes = {
     classroom: '/classroom-manage',
     specialty: '/specialty-manage',
     teacherInfo: '/teacher-info-manage',
+    userManage: '/system/users-manage-redux',
 };
 
 export default routes;

@@ -19,6 +19,7 @@ import ScheduleTeacher from '~/layouts/System/Page/ScheduleTeacher';
 import Classroom from '~/layouts/System/Page/Classroom';
 import Specialty from '~/layouts/System/Page/Specialty';
 import TeacherInfo from '~/layouts/System/Page/TeacherInfo';
+import UserManage from '~/layouts/System/Page/UserManage';
 
 const publicRouters = [
     { path: config.routes.home, component: Home },
@@ -40,6 +41,7 @@ const privateRoutes = [
     { path: config.routes.classroom, component: Classroom },
     { path: config.routes.specialty, component: Specialty },
     { path: config.routes.teacherInfo, component: TeacherInfo },
+    { path: config.routes.userManage, component: UserManage },
 ];
 
 export { publicRouters, privateRoutes };

@@ -145,3 +145,160 @@ export const saveDetailDoctor = (data) => {
         }
     };
 };
+
+export const fetchPositionStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await axios.getAllCodeService('POSITION');
+            if (res && res.errCode === 0) {
+                dispatch(fetchPositionSuccess(res.data));
+            } else {
+                dispatch(fetchPositionFailed());
+            }
+        } catch (e) {
+            dispatch(fetchPositionFailed());
+            console.log('fetchGenderStart error', e);
+        }
+    };
+};
+export const fetchPositionSuccess = (positionData) => ({
+    type: types.FETCH_POSITION_SUCCESS,
+    data: positionData,
+});
+
+export const fetchPositionFailed = () => ({
+    type: types.FETCH_POSITION_FAILED,
+});
+
+export const fetchRoleStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await axios.getAllCodeService('ROLE');
+            if (res && res.errCode === 0) {
+                dispatch(fetchRoleSuccess(res.data));
+            } else {
+                dispatch(fetchRoleFailed());
+            }
+        } catch (e) {
+            dispatch(fetchRoleFailed());
+            console.log('fetchGenderStart error', e);
+        }
+    };
+};
+
+export const fetchRoleSuccess = (roleData) => ({
+    type: types.FETCH_ROLE_SUCCESS,
+    data: roleData,
+});
+
+export const fetchRoleFailed = () => ({
+    type: types.FETCH_ROLE_FAILED,
+});
+// create user crud
+export const createNewUser = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await axios.createNewUserService(data);
+            console.log('hoidanit check create user redux: ', res);
+            if (res && res.errCode === 0) {
+                toast.success('Create a new user succeed!');
+                dispatch(saveUserSuccess());
+                dispatch(fetchAllUsersStart());
+            } else {
+                dispatch(saveUserFailed());
+            }
+        } catch (e) {
+            dispatch(saveUserFailed());
+            console.log('fetchGenderStart error', e);
+        }
+    };
+};
+
+export const saveUserSuccess = () => ({
+    type: types.CREATE_USER_SUCCESS,
+});
+export const saveUserFailed = () => ({
+    type: types.CREATE_USER_FAILED,
+});
+
+export const fetchAllUsersStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await axios.getAllUsers('ALL');
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllUsersSuccess(res.users.reverse()));
+            } else {
+                toast.error('Fetch all user error!');
+                dispatch(fetchAllUsersFailed());
+            }
+        } catch (e) {
+            toast.error('Fetch all user error!');
+
+            dispatch(fetchAllUsersFailed());
+            console.log('fetchAllUsersFailed error', e);
+        }
+    };
+};
+
+export const fetchAllUsersSuccess = (data) => ({
+    type: types.FETCH_ALL_USERS_SUCCESS,
+    users: data,
+});
+
+export const fetchAllUsersFailed = () => ({
+    type: types.FETCH_ALL_USERS_FAILED,
+});
+
+export const deleteAUser = (userId) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await axios.deleteUserService(userId);
+            if (res && res.errCode === 0) {
+                toast.success('Delete the user succeed!');
+                dispatch(deleteUserSuccess());
+                dispatch(fetchAllUsersStart());
+            } else {
+                toast.error('Delete the user error!');
+                dispatch(deleteUserFailed());
+            }
+        } catch (e) {
+            dispatch(deleteUserFailed());
+            console.log('fetchGenderStart error', e);
+        }
+    };
+};
+
+export const deleteUserSuccess = () => ({
+    type: types.DELETE_USER_SUCCESS,
+});
+export const deleteUserFailed = () => ({
+    type: types.DELETE_USER_SUCCESS,
+});
+
+export const editAUser = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await axios.editUserService(data);
+            if (res && res.errCode === 0) {
+                toast.success('Update the user succeed!');
+                dispatch(editUserSuccess());
+                dispatch(fetchAllUsersStart());
+            } else {
+                toast.error('Update the user error!');
+                dispatch(editUserFailed());
+            }
+        } catch (e) {
+            toast.error('Update the user error!');
+            dispatch(editUserFailed());
+            console.log('EditUserFailed error', e);
+        }
+    };
+};
+
+export const editUserSuccess = () => ({
+    type: types.EDIT_USER_SUCCESS,
+});
+
+export const editUserFailed = () => ({
+    type: types.EDIT_USER_FAILED,
+});

@@ -54,8 +54,8 @@ function Sidebar() {
             title: 'Learn',
             data: [
                 {
-                    title: 'self learning',
-                    to: '/',
+                    title: 'Danh sách người dùng',
+                    to: '/system/users-manage-redux',
                 },
                 {
                     title: 'Read books',
