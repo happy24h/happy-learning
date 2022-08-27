@@ -4,6 +4,7 @@ import { privateRoutes, publicRouters } from './routes';
 import DefaultLayout from './layouts/DefaultLayout';
 import SystemLayout from './layouts/System/SystemLayout';
 import { ToastContainer } from 'react-toastify';
+import Form from './pages/Login/Form';
 import 'react-toastify/ReactToastify.min.css';
 import './assets/styles/grid.scss';
 
@@ -33,21 +34,23 @@ function App() {
                             />
                         );
                     })}
-                    {privateRoutes.map((route, index) => {
-                        const Page = route.component;
-                        let Layout = SystemLayout;
-                        return (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                element={
-                                    <Layout>
-                                        <Page />
-                                    </Layout>
-                                }
-                            />
-                        );
-                    })}
+                    <Route element={<Form />}>
+                        {privateRoutes.map((route, index) => {
+                            const Page = route.component;
+                            let Layout = SystemLayout;
+                            return (
+                                <Route
+                                    key={index}
+                                    path={route.path}
+                                    element={
+                                        <Layout>
+                                            <Page />
+                                        </Layout>
+                                    }
+                                />
+                            );
+                        })}
+                    </Route>
                 </Routes>
                 <ToastContainer />
             </div>

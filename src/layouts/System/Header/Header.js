@@ -88,8 +88,8 @@ function Header() {
                                 <FontAwesomeIcon icon={faEarthAsia} />
                                 <span className={cx('action-btn-2')}> English</span>
                             </Button>
-                            <Link to={config.routes.login}>
-                                <Button primary>Log in</Button>
+                            <Link to={config.routes.home}>
+                                <Button primary>Log out</Button>
                             </Link>
                         </>
                     )}

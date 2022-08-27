@@ -5,8 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import '../Register/Register.scss';
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import * as axios from '~/services/adminService';
+import { toast } from 'react-toastify';
 
 const Login = ({ submitForm }) => {
+    const navigate = useNavigate();
     const [values, setValues] = useState({
         email: '',
         password: '',
@@ -27,13 +31,25 @@ const Login = ({ submitForm }) => {
         setDataIsCorrect(true);
     };
     useEffect(() => {
-        if (Object.keys(errors).length === 0 && dataIsCorrect) {
-            submitForm(true);
-        }
+        const fetchApi = async () => {
+            let res = await axios.handleLoginApi(values.email, values.password);
+            if (res && res.errCode === 0) {
+                if (Object.keys(errors).length === 0 && dataIsCorrect) {
+                    submitForm(true);
+                    navigate('/system/user-manage');
+                    setErrors(validation(values));
+                }
+            } else {
+                toast.error('Vui lòng nhập đúng thông tin!');
+            }
+        };
+        fetchApi();
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [errors]);
 
     let { email, password } = values;
+    console.log('value login ', values);
     return (
         <div className="container-login">
             <form className="loginForm">
