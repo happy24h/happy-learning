@@ -4,9 +4,10 @@ import { CRUD_ACTIONS } from '~/utils/constant';
 import CommonUtils from '~/utils/CommonUtils';
 import * as actions from '~/store/actions/adminActions';
 import { Buffer } from 'buffer';
-import Lightbox from 'react-image-lightbox';
+// import Lightbox from 'react-image-lightbox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import Modal from './Modal/Modal';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 import './UserManage.scss';
 // phóng to image
@@ -104,6 +105,13 @@ class UserManage extends Component {
         if (!this.state.previewImgURL) return;
         this.setState({
             isOpen: true,
+        });
+    };
+
+    handleModal = () => {
+        if (!this.state.previewImgURL) return;
+        this.setState({
+            isOpen: false,
         });
     };
 
@@ -376,13 +384,9 @@ class UserManage extends Component {
                             </div>
                         </div>
                     </div>
+                    {/* phóng to ảnh image */}
+                    {this.state.isOpen === true && <Modal handleModal={this.handleModal} dataImage={previewImgURL} />}
                 </div>
-
-                {/* phóng to ảnh image */}
-
-                {this.state.isOpen === true && (
-                    <Lightbox mainSrc={previewImgURL} onCloseRequest={() => this.setState({ isOpen: false })} />
-                )}
             </div>
         );
     }
