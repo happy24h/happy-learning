@@ -293,7 +293,7 @@ class TeacherInfo extends Component {
 
                 <div className="more-infor-extra row">
                     <div className="col-form l-4 form-group">
-                        <label>Giá khám bệnh</label>
+                        <label>Giá khóa học</label>
                         <Select
                             value={this.state.selectedPrice}
                             onChange={this.handleChangeSelectDoctorInfor}

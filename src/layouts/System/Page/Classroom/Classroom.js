@@ -69,7 +69,7 @@ function Classroom() {
 
             <div className="add-new-specialty row">
                 <div className="col l-6 form-group">
-                    <label>Tên phòng khám</label>
+                    <label>Tên trang học tập</label>
                     <input
                         className="form-control"
                         type="text"
@@ -78,11 +78,11 @@ function Classroom() {
                     />
                 </div>
                 <div className="col l-6 form-group image-classroom">
-                    <label>Ảnh phòng khám</label>
+                    <label>Ảnh trang học tập</label>
                     <input className="form-control-file" type="file" onChange={(event) => handleOnchangeImage(event)} />
                 </div>
                 <div className="col l-6 form-group">
-                    <label>Địa chỉ phòng khám</label>
+                    <label>Địa chỉ trang học tập</label>
                     <input
                         className="form-control"
                         type="text"

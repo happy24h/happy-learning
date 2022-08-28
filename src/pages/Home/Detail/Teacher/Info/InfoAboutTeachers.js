@@ -18,7 +18,7 @@ function InfoAboutTeachers({ teacherIdFromParent }) {
     return (
         <div className="doctor-extra-infor-container">
             <div className="content-up">
-                <div className="text-address">Địa chỉ khám</div>
+                <div className="text-address">Địa chỉ</div>
                 <div className="name-clinic">{infoTeacher && infoTeacher.nameClinic ? infoTeacher.nameClinic : ''}</div>
                 <div className="detail-address">
                     {infoTeacher && infoTeacher.addressClinic ? infoTeacher.addressClinic : ''}
@@ -27,7 +27,7 @@ function InfoAboutTeachers({ teacherIdFromParent }) {
             <div className="content-down">
                 {showDetail === false && (
                     <div className="short-infor">
-                        Giá khám:
+                        Giá khóa học:
                         {showDetail.priceTypeData && (
                             <NumberFormat
                                 className="currency"
@@ -44,10 +44,10 @@ function InfoAboutTeachers({ teacherIdFromParent }) {
                 )}{' '}
                 {showDetail === true && (
                     <>
-                        <div className="title-price">Giá khám:</div>
+                        <div className="title-price">Giá khóa học:</div>
                         <div className="detail-infor">
                             <div className="price">
-                                <span className="left">Giá khám:</span>
+                                <span className="left">Giá khóa học:</span>
                                 <span className="right">
                                     {infoTeacher && infoTeacher.priceTypeData && (
                                         <NumberFormat
@@ -64,7 +64,7 @@ function InfoAboutTeachers({ teacherIdFromParent }) {
                         </div>
 
                         <div className="payment">
-                            Người bệnh có thể thanh toán chi phí bằng hình thức:
+                            Học viên có thể thanh toán chi phí bằng hình thức:{' '}
                             {infoTeacher && infoTeacher.paymentTypeData ? infoTeacher.paymentTypeData.valueVi : ''}
                         </div>
                         <div className="hide-price">

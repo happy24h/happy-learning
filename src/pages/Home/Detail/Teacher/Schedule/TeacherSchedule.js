@@ -117,7 +117,7 @@ function TeacherSchedule({ teacherIdFromParent }) {
                             </>
                         ) : (
                             <div className="no-schedule">
-                                Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian.
+                                Giáo viên không có lịch hẹn trong thời gian này, vui lòng chọn thời gian.
                             </div>
                         )}
                     </div>

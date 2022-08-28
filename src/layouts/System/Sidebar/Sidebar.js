@@ -40,11 +40,11 @@ function Sidebar() {
             title: 'Thông tin',
             data: [
                 {
-                    title: 'Phòng học',
+                    title: 'Trang học tập',
                     to: '/classroom-manage',
                 },
                 {
-                    title: 'Chuyên môn',
+                    title: 'Khóa học',
                     to: '/specialty-manage',
                 },
             ],

@@ -119,11 +119,11 @@ function ScheduleTeacher({ allDoctors, fetAllDoctors, allScheduleTime, fetchAllS
 
     return (
         <div className="manage-schedule-container">
-            <div className="m-s-title">QUẢN LÝ KẾ HOẠCH KHÁM BỆNH CỦA BÁC SĨ</div>
+            <div className="m-s-title">QUẢN LÝ KẾ HOẠCH THỜI GIAN CỦA GIÁO VIÊN</div>
             <div className="container">
                 <div className="row">
                     <div className="col l-6 form-group">
-                        <label>Chọn Bác Sĩ </label>
+                        <label>Chọn giáo viên </label>
 
                         <select className="form-control l-12" name="selectedDoctor" onChange={handleInputChange}>
                             <option value="">Choose...</option>

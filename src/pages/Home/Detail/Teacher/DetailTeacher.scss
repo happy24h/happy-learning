@@ -6,8 +6,12 @@
         margin: 0 100px;
 
         .content-left {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
             width: 20%;
-            background: center center no-repeat;
+            // background: center center no-repeat;
             height: 120px;
             width: 120px;
             border-radius: 50%;
