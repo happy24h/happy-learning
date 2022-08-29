@@ -6,7 +6,8 @@ function CreateSuccess() {
             <div className="container-login">
                 <div className="heading-success">
                     <div>
-                        Create Account Success!
+                        Chưa hoàn thiện xong phần tạo tài khoản.
+                        <p>Vui lòng quay lại sau!</p>
                         <div className="field signupfield">
                             <span className="linkfield text-link">
                                 <Link to="/login">Already signed up? Login here</Link>

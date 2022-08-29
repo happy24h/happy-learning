@@ -140,7 +140,7 @@ function Modal({ setModal, dataTime }, props) {
 
             <div className="modal__inner">
                 <div className="modal__header">
-                    <p>Thông tin đặt lịch khám bệnh</p>
+                    <p>Thông tin đặt lịch khóa học</p>
                     <span onClick={() => setModal(false)}>
                         <FontAwesomeIcon icon={faTimes} />
                     </span>
@@ -213,7 +213,7 @@ function Modal({ setModal, dataTime }, props) {
                             </select>
                         </div>
                         <div className="col l-12 form-group">
-                            <label>Lý do khám</label>
+                            <label>Ghi chú</label>
                             <input
                                 type="text"
                                 className="form-control"

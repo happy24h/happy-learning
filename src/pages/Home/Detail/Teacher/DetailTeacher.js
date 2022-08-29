@@ -12,11 +12,6 @@ function DetailTeacher() {
     });
     const [currentTeacherId, setCurrentTeacher] = useState(-1);
 
-    let a = 0;
-    if (currentTeacherId === id) {
-        a += 1;
-    }
-
     useEffect(() => {
         setCurrentTeacher(id);
 
@@ -30,7 +25,7 @@ function DetailTeacher() {
         };
         fetchApi();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [a]);
+    }, [currentTeacherId]);
 
     let { detailTeacher } = state;
 
