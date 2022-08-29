@@ -2,23 +2,23 @@
     --width-input: 305px;
 }
 .container {
-    font-family: 'Roboto';
+    // font-family: 'Roboto';
     width: 1200px;
     margin: 0 auto;
     display: block;
     background: #fff;
-    padding: 10px 0 0;
 
     .title {
-        text-align: center;
-        // text-transform: uppercase;
-        font-weight: bold;
-        font-size: 22px;
+        text-transform: uppercase;
         margin-bottom: 35px;
-        color: var(--blue);
+        padding-top: 15px;
+        font-weight: 600;
+        font-size: 17px;
+        text-align: center;
     }
 
     form {
+        font-family: 'Roboto';
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;

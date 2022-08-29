@@ -292,17 +292,17 @@ class TeacherInfo extends Component {
                 </div>
 
                 <div className="more-infor-extra row">
-                    <div className="col-form l-4 form-group">
+                    <div className="col-form l-4 form-group mb">
                         <label>Giá khóa học</label>
                         <Select
                             value={this.state.selectedPrice}
                             onChange={this.handleChangeSelectDoctorInfor}
                             options={this.state.listPrice}
-                            placeholder="Giá khám bệnh"
+                            placeholder="Giá khóa học"
                             name="selectedPrice"
                         />
                     </div>
-                    <div className="col-form l-4 form-group">
+                    <div className="col-form l-4 form-group mb">
                         <label>Phương thức thanh toán</label>
                         <Select
                             value={this.state.selectedPayment}
@@ -312,7 +312,7 @@ class TeacherInfo extends Component {
                             name="selectedPayment"
                         />
                     </div>
-                    <div className="col-form l-4 form-group">
+                    <div className="col-form l-4 form-group mb">
                         <label>Tỉnh thành</label>
                         <Select
                             value={this.state.selectedProvince}
@@ -346,10 +346,9 @@ class TeacherInfo extends Component {
                             value={this.state.note}
                         />
                     </div>
-                </div>
 
-                <div className="row">
-                    <div className="col-form l-4 form-group">
+                    {/* <div className="row"> */}
+                    <div className="col-form l-4 form-group mb">
                         <label>Chọn chuyên môn</label>
                         <Select
                             value={this.state.selectedSpecialty}
@@ -359,7 +358,7 @@ class TeacherInfo extends Component {
                             name="selectedSpecialty"
                         />
                     </div>
-                    <div className="col-form l-4 form-group">
+                    <div className="col-form l-4 form-group mb">
                         <label>Chọn phòng học</label>
                         <Select
                             value={this.state.selectedClinic}
@@ -370,6 +369,7 @@ class TeacherInfo extends Component {
                         />
                     </div>
                 </div>
+                {/* </div> */}
 
                 <div className="manage-doctor-editor">
                     <MdEditor

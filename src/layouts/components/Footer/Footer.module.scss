@@ -22,9 +22,10 @@
 .footer {
     top: 0px;
     background-color: #ffffff;
-    width: 100%;
-    padding: 60px;
-    border-top: 4px solid #ccc;
+    width: 1200px;
+    padding: 60px 0;
+    padding-left: var(--width-sidebar);
+    // border-left: 1px solid #ccc;
     color: var(--text-color);
 }
 .footer__heading {

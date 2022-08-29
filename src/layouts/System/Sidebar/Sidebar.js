@@ -13,11 +13,11 @@ function Sidebar() {
             data: [
                 {
                     title: 'Danh sách người dùng',
-                    to: '/system/user-manage',
+                    to: '/system/users-manage-redux',
                 },
                 {
-                    title: 'Redux CRUD',
-                    to: '/system/user-redux',
+                    title: 'Thêm thông tin',
+                    to: '/teacher-info-manage',
                 },
             ],
         },
@@ -51,15 +51,15 @@ function Sidebar() {
         },
         {
             icon: <FontAwesomeIcon icon={faLightbulb} />,
-            title: 'Learn',
+            title: 'Học tập',
             data: [
                 {
-                    title: 'Danh sách người dùng',
-                    to: '/system/users-manage-redux',
+                    title: 'React CRUD',
+                    to: '/system/user-manage',
                 },
                 {
-                    title: 'Read books',
-                    to: '/',
+                    title: 'Redux CRUD',
+                    to: '/system/user-redux',
                 },
             ],
         },

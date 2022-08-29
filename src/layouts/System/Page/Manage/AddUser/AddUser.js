@@ -57,7 +57,7 @@ function AddUser({ loadApi, setLoadApi }) {
 
     return (
         <div className={cx('container')}>
-            <div className={cx('title')}>User Management System</div>
+            <div className={cx('title')}>Quản lý danh sách người dùng</div>
             <form>
                 <div className={cx('group')}>
                     <input

@@ -55,6 +55,20 @@
         background-color: #f9f9f9;
         padding: 10px 100px;
 
+        li {
+            margin-left: 30px;
+        }
+        li:nth-child(10) {
+            margin-left: 37px;
+        }
+        // li::before {
+        //     content: '-->';
+        //     background: lightgray;
+        //     border-radius: 1ch;
+        //     padding-inline: 1ch;
+        //     margin-inline-end: 1ch;
+        // }
+
         h3 {
             font-size: 17px;
         }

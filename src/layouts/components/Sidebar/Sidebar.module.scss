@@ -1,11 +1,15 @@
 .wrapper {
     width: var(--width-sidebar);
-    height: 350px;
-    padding: 10px 0px;
-    background-color: #ffffff;
+    height: 100vh;
+    // padding: 10px 0px;
+    background-color: #fff;
 }
 
 .navWrapper {
+    padding-top: 15px;
     position: fixed;
+    height: 100vh;
+    background-color: #fff;
     width: var(--width-sidebar);
+    border-right: 1px solid #ccc;
 }
