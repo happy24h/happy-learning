@@ -31,26 +31,28 @@ function Teacher({ settings }) {
 
                 <div className={cx('slider')}>
                     <Slider className={cx('container')} {...settings}>
-                        {posts.map((item, index) => {
-                            var imageBase64 = Buffer.from(item.image, 'base64');
-                            console.log('base64', imageBase64);
+                        {posts &&
+                            posts.length > 0 &&
+                            posts.map((item, index) => {
+                                var imageBase64 = Buffer.from(item.image, 'base64');
+                                console.log('base64', imageBase64);
 
-                            return (
-                                <div
-                                    className="section-customize"
-                                    key={index}
-                                    onClick={() => handleViewDetailTeacher(item)}
-                                >
-                                    <div className="item-center">
-                                        <div
-                                            className="bg-image section-outstanding-doctor"
-                                            style={{ backgroundImage: `url(${imageBase64})` }}
-                                        ></div>
-                                        <div className="name-specialty">{`${item.lastName} ${item.firstName}`}</div>
+                                return (
+                                    <div
+                                        className="section-customize"
+                                        key={index}
+                                        onClick={() => handleViewDetailTeacher(item)}
+                                    >
+                                        <div className="item-center">
+                                            <div
+                                                className="bg-image section-outstanding-doctor"
+                                                style={{ backgroundImage: `url(${imageBase64})` }}
+                                            ></div>
+                                            <div className="name-specialty">{`${item.lastName} ${item.firstName}`}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
                     </Slider>
                 </div>
             </div>

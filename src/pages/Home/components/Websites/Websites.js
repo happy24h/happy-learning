@@ -30,19 +30,21 @@ function Websites({ settings }) {
 
                 <div className={cx('slider')}>
                     <Slider className={cx('container')} {...settings}>
-                        {dataWebsites.map((item, index) => (
-                            <div
-                                key={index}
-                                className="section-customize"
-                                onClick={() => handleViewDetailWebsites(item)}
-                            >
+                        {dataWebsites &&
+                            dataWebsites.length > 0 &&
+                            dataWebsites.map((item, index) => (
                                 <div
-                                    className="bg-image section-specialty"
-                                    style={{ backgroundImage: `url(${item.image})` }}
-                                ></div>
-                                <div className="name-specialty">{item.name}</div>
-                            </div>
-                        ))}
+                                    key={index}
+                                    className="section-customize"
+                                    onClick={() => handleViewDetailWebsites(item)}
+                                >
+                                    <div
+                                        className="bg-image section-specialty"
+                                        style={{ backgroundImage: `url(${item.image})` }}
+                                    ></div>
+                                    <div className="name-specialty">{item.name}</div>
+                                </div>
+                            ))}
                     </Slider>
                 </div>
             </div>
