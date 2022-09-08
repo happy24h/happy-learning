@@ -3,7 +3,7 @@ import Sidebar from '~/layouts/components/Sidebar';
 import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 import Footer from '../components/Footer';
-import Slider from '../components/Slider';
+// import Slider from '../components/Slider';
 
 const cx = classNames.bind(styles);
 
@@ -15,7 +15,7 @@ function DefaultLayout({ children }) {
             <div className={cx('container')}>
                 <Sidebar />
                 <div className={cx('content')}>
-                    <Slider />
+                    {/* <Slider /> */}
                     {children}
                 </div>
             </div>
