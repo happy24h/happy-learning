@@ -4,11 +4,9 @@ import { CRUD_ACTIONS } from '~/utils/constant';
 import CommonUtils from '~/utils/CommonUtils';
 import * as actions from '~/store/actions/adminActions';
 import { Buffer } from 'buffer';
-// import Lightbox from 'react-image-lightbox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal/Modal';
-import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 import './UserManage.scss';
 // phóng to image
 import TableManageUser from './TableManageUser';
