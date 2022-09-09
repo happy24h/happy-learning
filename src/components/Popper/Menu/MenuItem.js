@@ -1,11 +1,17 @@
-function MenuItem() {
+import classNames from 'classnames/bind';
+import Button from '~/components/Button';
+import styles from './Menu.module.scss';
+
+const cx = classNames.bind(styles);
+
+function MenuItem({ data, onClick }) {
+    const classes = cx('menu-item', {
+        separate: data.separate,
+    });
     return (
-        <div>
-            <h5>View profile</h5>
-            <h5>Settings</h5>
-            <h5>English</h5>
-            <h5>Log out</h5>
-        </div>
+        <Button className={classes} leftIcon={data.icon} to={data.to} onClick={onClick}>
+            {data.title}
+        </Button>
     );
 }
 

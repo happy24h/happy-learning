@@ -2,10 +2,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 110px;
+    min-width: 100px;
     padding: 9px 16px;
-    border-radius: 99px;
-    font-size: 1.6rem;
+    border-radius: var(--border-radius);
+    font-size: 1.4rem;
     font-weight: 700;
     font-family: var(--font-family);
     cursor: pointer;

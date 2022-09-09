@@ -1,5 +1,5 @@
-import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import config from '~/config';
 import Search from '~/layouts/components/Search';
@@ -36,7 +36,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const currentUser = true;
+    const currentUser = false;
     const userMenu = [
         {
             icon: <FontAwesomeIcon icon={faUser} />,
@@ -68,13 +68,13 @@ function Header() {
                     <Link to={config.routes.home} className={cx('logo-link')}>
                         <img src={images.logo} alt="" width={48} height={40} />
                     </Link>
-                    <div>Học lập trình</div>
+                    <div>Nỗ lực để tốt hơn 1% mỗi ngày</div>
                 </div>
                 <Search />
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <div className={cx('my-course')}>Khóa học của tôi</div>
+                            <div className={cx('my-course')}>Khóa học</div>
                             <Tippy delay={[0, 50]} content="Thông báo" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <BellIcon />
@@ -88,19 +88,21 @@ function Header() {
                                 <FontAwesomeIcon icon={faEarthAsia} />
                                 <span className={cx('action-btn-2')}> English</span>
                             </Button>
-                            <Button primary>Log in</Button>
+                            <Link to={config.routes.login}>
+                                <Button primary>Log in</Button>
+                            </Link>
                         </>
                     )}
 
-                    <Menu items={currentUser && userMenu}>
-                        {currentUser && (
+                    {currentUser && (
+                        <Menu items={userMenu}>
                             <img
                                 className={cx('user-avatar')}
                                 src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
                                 alt="Nguyen Van A"
                             />
-                        )}
-                    </Menu>
+                        </Menu>
+                    )}
                 </div>
             </div>
         </div>

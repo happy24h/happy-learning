@@ -1,0 +1,13 @@
+.slider-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    height: 195px;
+    padding: 0 7px;
+}
+.image-slider {
+    height: 195px;
+    border-radius: var(--border-radius);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
