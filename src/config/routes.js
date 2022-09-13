@@ -1,11 +1,11 @@
 const routes = {
     home: '/',
-    blog: '/blog',
+    food: '/food',
     learn: '/learn',
     login: '/login',
     register: '/register',
     library: '/library',
-    lifeSkills: '/lifeSkills',
+    calculator: '/calculator',
     detailWebsite: '/detail-learn-website/:id',
     detailCourse: '/detail-course/:id',
     detailTeacher: '/detail-teacher/:id',

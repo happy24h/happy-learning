@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import * as userService from '~/services/userService';
 import classNames from 'classnames/bind';
@@ -48,6 +50,12 @@ function Courses({ settings }) {
                                 </div>
                             ))}
                     </Slider>
+                    {!dataCourses && (
+                        <div className={cx('wrapper-loading')}>
+                            Loading...
+                            <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

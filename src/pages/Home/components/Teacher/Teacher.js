@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import * as useService from '~/services/userService';
 import Slider from 'react-slick';
 import { useNavigate } from 'react-router-dom';
-// import SliderItem from '../SliderItem';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Buffer } from 'buffer';
 import classNames from 'classnames/bind';
 import styles from '../ContentSlider/ContentSlider.module.scss';
@@ -54,6 +55,12 @@ function Teacher({ settings }) {
                                 );
                             })}
                     </Slider>
+                    {!posts && (
+                        <div className={cx('wrapper-loading')}>
+                            Loading...
+                            <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

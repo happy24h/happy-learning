@@ -2,12 +2,12 @@ import config from '~/config';
 import HeaderOnly from '~/layouts/HeaderOnly';
 
 import Home from '~/pages/Home';
-import Blog from '~/pages/Blog';
+import Food from '~/pages/Food';
 import Learn from '~/pages/Learn';
 import Login from '~/pages/Login';
 import Register from '~/pages/Register';
 import Library from '~/pages/Library';
-import LifeSkills from '~/pages/LifeSkills';
+import Calculator from '~/pages/Calculator';
 import DetailWebsite from '~/pages/Home/Detail/Website';
 import DetailCourse from '~/pages/Home/Detail/Course';
 import DetailTeacher from '~/pages/Home/Detail/Teacher/DetailTeacher';
@@ -23,9 +23,9 @@ import UserManage from '~/layouts/System/Page/UserManage';
 
 const publicRouters = [
     { path: config.routes.home, component: Home },
-    { path: config.routes.blog, component: Blog },
+    { path: config.routes.food, component: Food },
     { path: config.routes.library, component: Library },
-    { path: config.routes.lifeSkills, component: LifeSkills },
+    { path: config.routes.calculator, component: Calculator },
     { path: config.routes.learn, component: Learn, changeLayout: HeaderOnly },
     { path: config.routes.detailWebsite, component: DetailWebsite, changeLayout: HeaderOnly },
     { path: config.routes.detailCourse, component: DetailCourse, changeLayout: HeaderOnly },

@@ -3,8 +3,7 @@ import styles from './Sidebar.module.scss';
 import config from '~/config';
 import MenuItem from './Menu/MenuItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBookOpenReader, faHome, faLightbulb } from '@fortawesome/free-solid-svg-icons';
-import { faBlogger } from '@fortawesome/free-brands-svg-icons';
+import { faBook, faBowlFood, faCalculator, faHome } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 function Sidebar() {
@@ -12,14 +11,14 @@ function Sidebar() {
         <div className={cx('wrapper')}>
             <nav className={cx('navWrapper')}>
                 <MenuItem title="Home" to={config.routes.home} icon={<FontAwesomeIcon icon={faHome} />} />
-                <MenuItem title="Blog" to={config.routes.blog} icon={<FontAwesomeIcon icon={faBlogger} />} />
+                <MenuItem title="Food" to={config.routes.food} icon={<FontAwesomeIcon icon={faBowlFood} />} />
                 <MenuItem title="Library" to={config.routes.library} icon={<FontAwesomeIcon icon={faBook} />} />
                 <MenuItem
-                    title="Life skills"
-                    to={config.routes.lifeSkills}
-                    icon={<FontAwesomeIcon icon={faBookOpenReader} />}
+                    title="Calculator"
+                    to={config.routes.calculator}
+                    icon={<FontAwesomeIcon icon={faCalculator} />}
                 />
-                <MenuItem title="Learn" to={config.routes.learn} icon={<FontAwesomeIcon icon={faLightbulb} />} />
+                {/* <MenuItem title="Learn" to={config.routes.learn} icon={<FontAwesomeIcon icon={faLightbulb} />} /> */}
             </nav>
         </div>
     );

@@ -110,3 +110,12 @@ div._loading_overlay_wrapper {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
+
+ol {
+    li {
+        margin-left: 30px;
+    }
+    li:nth-child(10) {
+        margin-left: 37px;
+    }
+}
