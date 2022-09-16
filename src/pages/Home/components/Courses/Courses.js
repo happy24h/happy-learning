@@ -10,11 +10,17 @@ const cx = classNames.bind(styles);
 function Courses({ settings }) {
     const navigate = useNavigate();
     const [dataCourses, setDataCourses] = useState([]);
+    const [loadData, setLoadData] = useState(false);
 
     useEffect(() => {
         const fetchApi = async () => {
+            setLoadData(true);
             const result = await userService.courses();
             setDataCourses(result);
+            if (result && result.length > 0) {
+                console.log('check load data:');
+                setLoadData(false);
+            }
         };
         fetchApi();
     }, []);
@@ -50,7 +56,7 @@ function Courses({ settings }) {
                                 </div>
                             ))}
                     </Slider>
-                    {!dataCourses && (
+                    {loadData && (
                         <div className={cx('wrapper-loading')}>
                             Loading...
                             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />

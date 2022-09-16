@@ -5,9 +5,10 @@ import styles from './HeaderOnly.module.scss';
 const cx = classNames.bind(styles);
 
 function HeaderOnly({ children }) {
+    let homePage = true;
     return (
         <div className={cx('wrapper')}>
-            <Header />
+            <Header homePage={homePage} />
             <div className={cx('container')}>
                 <div className={cx('content')}>{children}</div>
             </div>

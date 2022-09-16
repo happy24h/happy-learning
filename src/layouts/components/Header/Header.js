@@ -8,7 +8,7 @@ import Button from '~/components/Button';
 import Tippy from '@tippyjs/react';
 import { BellIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEarthAsia, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faEarthAsia, faUser, faCoins, faGear, faSignOut, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css';
 import Menu from '~/components/Popper/Menu';
 const cx = classNames.bind(styles);
@@ -35,7 +35,7 @@ const MENU_ITEMS = [
     },
 ];
 
-function Header() {
+function Header({ homePage }) {
     const currentUser = false;
     const userMenu = [
         {
@@ -68,7 +68,16 @@ function Header() {
                     <Link to={config.routes.home} className={cx('logo-link')}>
                         <img src={images.logo} alt="" width={48} height={40} />
                     </Link>
-                    <div>Nỗ lực để tốt hơn 1% mỗi ngày</div>
+                    {homePage ? (
+                        <Link to={config.routes.home}>
+                            <div className={cx('back-home')}>
+                                <FontAwesomeIcon className={cx('back-home-icon')} icon={faAngleLeft} />
+                                Quay lại trang chủ
+                            </div>
+                        </Link>
+                    ) : (
+                        <div>Nỗ lực để tốt hơn 1% mỗi ngày</div>
+                    )}
                 </div>
                 <Search />
                 <div className={cx('actions')}>

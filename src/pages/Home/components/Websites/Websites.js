@@ -10,10 +10,16 @@ const cx = classNames.bind(styles);
 function Websites({ settings }) {
     const navigate = useNavigate();
     const [dataWebsites, setDataWebsites] = useState([]);
+    const [loadData, setLoadData] = useState(false);
     useEffect(() => {
         const fetchApi = async () => {
+            setLoadData(true);
             let result = await userService.websites();
             setDataWebsites(result);
+            if (result && result.length > 0) {
+                console.log('check load data:');
+                setLoadData(false);
+            }
         };
         fetchApi();
     }, []);
@@ -48,7 +54,7 @@ function Websites({ settings }) {
                                 </div>
                             ))}
                     </Slider>
-                    {!dataWebsites && (
+                    {loadData && (
                         <div className={cx('wrapper-loading')}>
                             Loading...
                             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />

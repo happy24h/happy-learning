@@ -8,7 +8,7 @@ let dataFood = [
     { id: 2, name: 'Cơm gạo lứt trộn', image: 'https://icdn.one/upload/2021/01/21/20210121134708-69bac637.jpg' },
     {
         id: 3,
-        name: 'Bột sắn dây nguyên chất ',
+        name: 'Cơm gạo lứt trộn rau củ ',
         image: 'https://amthucvietnam365.vn/wp-content/uploads/2021/04/an-kieng-3.jpg',
     },
     {

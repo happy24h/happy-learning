@@ -123,9 +123,9 @@ function Library() {
         <div className="container-library">
             <h2 className="title">Phân loại thực phẩm âm (-) dương (+)</h2>
             <div>
-                Phân loại thực phẩm âm (-) dương (+) (Đi từ ÂM đến DƯƠNG) Âm (-) từ nhiều đến ít, nhiều nhất 3 dấun gang
-                (– – –), ít nhất 1 dấu ngang (–) Dương (+) từ it đến nhiều, ít nhất một dấu chử thập (+) nhiều nhất 3
-                dấu chử thập (+++)
+                Phân loại thực phẩm âm (-) dương (+) (Đi từ ÂM đến DƯƠNG) Âm (-) từ nhiều đến ít, nhiều nhất 3 dấu ngang
+                (– – –), ít nhất 1 dấu ngang (–) Dương (+) từ ít đến nhiều, ít nhất một dấu chữ thập (+) nhiều nhất 3
+                dấu chữ thập (+++)
             </div>
             <div className="text-note">
                 Sau đây sẽ phân tích một số thức ăn thường hàng ngày, theo khoa dinh dưỡng trong thuật trương sinh của

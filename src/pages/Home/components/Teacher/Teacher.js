@@ -11,10 +11,16 @@ const cx = classNames.bind(styles);
 function Teacher({ settings }) {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
+    const [loadData, setLoadData] = useState(false);
     useEffect(() => {
         const fetchApi = async () => {
+            setLoadData(true);
             let result = await useService.teacher();
             setPosts(result);
+            if (result && result.length > 0) {
+                console.log('check load data:');
+                setLoadData(false);
+            }
         };
         fetchApi();
     }, []);
@@ -55,7 +61,7 @@ function Teacher({ settings }) {
                                 );
                             })}
                     </Slider>
-                    {!posts && (
+                    {loadData && (
                         <div className={cx('wrapper-loading')}>
                             Loading...
                             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />

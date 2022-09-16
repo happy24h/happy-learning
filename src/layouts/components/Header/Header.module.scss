@@ -46,6 +46,27 @@
     display: flex;
 }
 
+.back-home {
+    display: flex;
+    align-items: center;
+    color: #337ab7 !important;
+    // font-size: 1.4rem;
+    // opacity: 0.9;
+    font-weight: 500 !important;
+}
+// .back-home:hover {
+//     opacity: 0.9;
+//     // font-weight: 600 !important;
+// }
+.back-home-icon {
+    padding: 0 6px 0 3px;
+}
+
+.back-home:hover .back-home-icon {
+    padding: 0 9px 0 0;
+    transition: 0.3s ease;
+}
+
 // Actions
 .actions {
     display: flex;
