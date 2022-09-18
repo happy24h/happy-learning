@@ -11,3 +11,13 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+@media (max-width: 1350px) {
+    .slider-wrapper {
+        width: 958px;
+    }
+
+    .image-slider {
+        height: 150px;
+    }
+}

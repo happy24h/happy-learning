@@ -19,10 +19,11 @@ let dataBook = [
         name: 'Ẩm thực dưỡng sinh',
         image: 'https://dungcudienchan.vn/wp-content/uploads/2017/11/sach-am-thuc-duong-sinh.jpg',
     },
+
     {
         id: 4,
-        name: 'Minh Triết Trong Ăn Uống Của Phương Đông',
-        image: 'https://product.hstatic.net/1000217031/product/minhtriettronganuong_599ea42f7c4249b89403f49e56cd1119_grande.jpg',
+        name: 'Ăn kiêng dưỡng sinh',
+        image: 'https://salt.tikicdn.com/cache/w1200/ts/product/7e/ed/84/4ca656b3a44f08cf78d89e2e55401bb8.jpg',
     },
     {
         id: 5,

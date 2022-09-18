@@ -38,3 +38,10 @@
         transform: translateY(-50%) rotate(360deg);
     }
 }
+
+// mobile
+@media (max-width: 1350px) {
+    .container {
+        max-width: 950px;
+    }
+}

@@ -13,3 +13,13 @@
     width: var(--width-sidebar);
     border-right: 1px solid #ddd;
 }
+
+// mobile
+@media (max-width: 1350px) {
+    .wrapper {
+        width: 180px !important;
+    }
+    .navWrapper {
+        width: 180px !important;
+    }
+}
