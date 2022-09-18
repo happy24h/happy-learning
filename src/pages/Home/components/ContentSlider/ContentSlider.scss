@@ -215,7 +215,7 @@
 }
 
 // mobile
-@media (max-width: 1350px) {
+@media (max-width: 1450px) {
     .section-share .section-customize {
         width: 228px !important;
         margin: 0 auto;
@@ -239,5 +239,14 @@
 
     .section-share {
         height: 270px;
+    }
+}
+
+@media (max-width: 740px) {
+    .slick-prev {
+        display: none !important;
+    }
+    .slick-next {
+        display: none !important;
     }
 }

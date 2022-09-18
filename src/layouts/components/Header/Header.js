@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
@@ -6,9 +7,19 @@ import Search from '~/layouts/components/Search';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import Tippy from '@tippyjs/react';
+import SidebarMobile from '../SidebarMobile/SidebarMobile';
 import { BellIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEarthAsia, faUser, faCoins, faGear, faSignOut, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import {
+    faEarthAsia,
+    faUser,
+    faCoins,
+    faGear,
+    faSignOut,
+    faAngleLeft,
+    faBars,
+    faSquareXmark,
+} from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css';
 import Menu from '~/components/Popper/Menu';
 const cx = classNames.bind(styles);
@@ -36,6 +47,7 @@ const MENU_ITEMS = [
 ];
 
 function Header({ homePage }) {
+    const [modelSidebar, setModelSidebar] = useState(false);
     const currentUser = false;
     const userMenu = [
         {
@@ -61,9 +73,25 @@ function Header({ homePage }) {
             separate: true,
         },
     ];
+    const handleModel = () => {
+        setModelSidebar(!modelSidebar);
+    };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
+                {modelSidebar && <SidebarMobile />}
+                {!modelSidebar ? (
+                    <div className={cx('icon-bars')} onClick={() => handleModel()}>
+                        <div className={cx('menu-mobile')}>
+                            <FontAwesomeIcon icon={faBars} />
+                        </div>
+                    </div>
+                ) : (
+                    <div className={cx('icon-time')}>
+                        <FontAwesomeIcon icon={faSquareXmark} onClick={() => handleModel()} />
+                    </div>
+                )}
+
                 <div className={cx('inner-left')}>
                     <Link to={config.routes.home} className={cx('logo-link')}>
                         <img src={images.logo} alt="" width={48} height={40} />

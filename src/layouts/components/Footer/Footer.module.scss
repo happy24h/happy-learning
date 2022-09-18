@@ -61,3 +61,10 @@
     font-size: 1.4rem;
     color: var(--text-color);
 }
+
+@media (max-width: 1180px) {
+    .footer {
+        margin-left: 0;
+        padding: 50px 30px;
+    }
+}

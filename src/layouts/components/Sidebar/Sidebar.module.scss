@@ -23,3 +23,9 @@
         width: 180px !important;
     }
 }
+
+@media (max-width: 1180px) {
+    .wrapper {
+        display: none;
+    }
+}

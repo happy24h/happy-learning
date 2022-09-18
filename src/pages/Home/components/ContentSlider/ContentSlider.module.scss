@@ -7,7 +7,7 @@
 
 .wrapper-loading {
     position: relative;
-    top: -170px;
+    top: -145px;
     left: -150px;
 
     font-size: 15px;
@@ -20,7 +20,7 @@
     font-size: 22px;
     position: absolute;
     right: calc(var(--search-button-width) + 16px);
-    top: 50%;
+    top: 45%;
 
     transform: translateY(-50%);
     color: #333;
@@ -40,7 +40,7 @@
 }
 
 // mobile
-@media (max-width: 1350px) {
+@media (max-width: 1450px) {
     .container {
         max-width: 950px;
     }

@@ -43,7 +43,7 @@ function Footer() {
                 </div>
             </div>
             <div className={cx('footer__bottom')}>
-                <div className="gird wide">
+                <div>
                     <p className={cx('footer__text')}>2022 - Bản quền thuộc về công ty Happy</p>
                 </div>
             </div>
