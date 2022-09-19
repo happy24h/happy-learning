@@ -18,7 +18,6 @@ import {
     faSignOut,
     faAngleLeft,
     faBars,
-    faSquareXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css';
 import Menu from '~/components/Popper/Menu';
@@ -79,16 +78,12 @@ function Header({ homePage }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
-                {modelSidebar && <SidebarMobile />}
-                {!modelSidebar ? (
+                {modelSidebar && <SidebarMobile handleModel={handleModel} />}
+                {!modelSidebar && (
                     <div className={cx('icon-bars')} onClick={() => handleModel()}>
                         <div className={cx('menu-mobile')}>
                             <FontAwesomeIcon icon={faBars} />
                         </div>
-                    </div>
-                ) : (
-                    <div className={cx('icon-time')}>
-                        <FontAwesomeIcon icon={faSquareXmark} onClick={() => handleModel()} />
                     </div>
                 )}
 

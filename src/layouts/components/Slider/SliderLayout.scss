@@ -21,3 +21,14 @@
         height: 150px;
     }
 }
+@media (max-width: 1199px) {
+    .slider-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 740px) {
+    .image-slider {
+        height: 170px;
+    }
+}

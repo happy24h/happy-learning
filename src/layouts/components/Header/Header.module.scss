@@ -127,15 +127,7 @@
 .menu-mobile {
     font-size: 25px;
     color: var(--primary);
-}
-
-.icon-time {
-    top: -18px;
-    position: relative;
-    color: #666;
-    font-size: 20px;
-    left: -85px;
-    animation: iconTime 0.5s linear;
+    cursor: pointer;
 }
 
 .icon-bars {
@@ -153,16 +145,5 @@
     }
     .inner-left {
         display: none;
-    }
-}
-
-@keyframes iconTime {
-    from {
-        // left: -150px;
-        opacity: 0.3;
-    }
-    to {
-        // left: -50px;
-        opacity: 0.5;
     }
 }

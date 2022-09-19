@@ -38,7 +38,7 @@ function Food({ settings }) {
                             dataFood.map((item, index) => (
                                 <div key={index} className="section-customize">
                                     <div
-                                        className="bg-image-blog section-specialty"
+                                        className="bg-image section-specialty"
                                         style={{ backgroundImage: `url(${item.image})` }}
                                     ></div>
                                     <div className="name-specialty">{item.name}</div>

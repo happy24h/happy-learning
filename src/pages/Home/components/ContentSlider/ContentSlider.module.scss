@@ -45,3 +45,14 @@
         max-width: 950px;
     }
 }
+
+@media (max-width: 740px) {
+    .container {
+        max-width: 740px;
+    }
+}
+@media (max-width: 600px) {
+    .container {
+        max-width: 600px;
+    }
+}

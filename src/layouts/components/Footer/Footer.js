@@ -44,7 +44,7 @@ function Footer() {
             </div>
             <div className={cx('footer__bottom')}>
                 <div>
-                    <p className={cx('footer__text')}>2022 - Bản quền thuộc về công ty Happy</p>
+                    <p className={cx('footer__text')}>2022 - Happy learning nền tảng học online miễn phí.</p>
                 </div>
             </div>
         </footer>

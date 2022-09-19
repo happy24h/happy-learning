@@ -6,7 +6,7 @@ import Book from '../Book';
 // Import css files
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './ContentSlider.scss';
+import '../../../Home/components/ContentSlider/ContentSlider.scss';
 
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;

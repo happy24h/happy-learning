@@ -42,6 +42,10 @@ body {
     overflow-y: scroll;
 }
 
+.App {
+    overflow: hidden;
+}
+
 // Scrollbar CSS
 html *::-webkit-scrollbar {
     border-radius: 0;
