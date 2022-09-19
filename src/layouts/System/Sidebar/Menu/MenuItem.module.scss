@@ -76,3 +76,9 @@ ul {
         transform: translateY(0%);
     }
 }
+
+@media (max-width: 1450px) {
+    .list-item {
+        width: 200px;
+    }
+}

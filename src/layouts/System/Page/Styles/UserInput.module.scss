@@ -2,7 +2,6 @@
     --width-input: 305px;
 }
 .container {
-    // font-family: 'Roboto';
     width: 1200px;
     margin: 0 auto;
     display: block;
@@ -156,5 +155,15 @@
         user-select: none;
         color: #fff;
         background-color: var(--blue);
+    }
+}
+
+@media (max-width: 1450px) {
+    .container {
+        width: 950px;
+    }
+
+    :root {
+        --width-input: 260px;
     }
 }
