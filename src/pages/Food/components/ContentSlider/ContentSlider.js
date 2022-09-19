@@ -18,12 +18,22 @@ function SamplePrevArrow(props) {
     return <div className={className} style={{ ...style, display: 'block', background: 'green' }} onClick={onClick} />;
 }
 export default function ContentSlider() {
+    let inner_w = window.innerWidth;
+    console.log('data width:', inner_w);
+    const handleInnerWidth = () => {
+        if (inner_w >= 740) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+
     var settings = {
         dots: false,
-        infinite: false,
+        infinite: handleInnerWidth(),
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 4,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
     };

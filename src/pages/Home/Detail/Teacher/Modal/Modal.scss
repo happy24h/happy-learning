@@ -179,3 +179,15 @@ input[type='date']:focus::-webkit-datetime-edit {
 [type='date']::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
+
+@media (max-width: 820px) {
+    .modal__inner {
+        width: 500px;
+    }
+}
+
+@media (max-width: 520px) {
+    .modal__inner {
+        width: 360px;
+    }
+}

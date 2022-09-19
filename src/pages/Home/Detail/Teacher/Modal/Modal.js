@@ -151,7 +151,7 @@ function Modal({ setModal, dataTime }, props) {
                         /> */}
                     </div>
                     <form className="row">
-                        <div className="col l-6 form-group">
+                        <div className="col l-6 c-6 form-group">
                             <label>Họ và tên</label>
                             <input
                                 type="text"
@@ -160,7 +160,7 @@ function Modal({ setModal, dataTime }, props) {
                                 onChange={(event) => handleOnchangeInput(event, 'fullName')}
                             />
                         </div>
-                        <div className="col l-6 form-group">
+                        <div className="col l-6 c-6 form-group">
                             <label>Số điện thoại</label>
                             <input
                                 type="text"
@@ -169,7 +169,7 @@ function Modal({ setModal, dataTime }, props) {
                                 onChange={(event) => handleOnchangeInput(event, 'phoneNumber')}
                             />
                         </div>
-                        <div className="col l-6 form-group">
+                        <div className="col l-6 c-6 form-group">
                             <label>Địa chỉ email</label>
                             <input
                                 type="text"
@@ -178,7 +178,7 @@ function Modal({ setModal, dataTime }, props) {
                                 onChange={(event) => handleOnchangeInput(event, 'email')}
                             />
                         </div>
-                        <div className="col l-6 form-group">
+                        <div className="col l-6 c-6 form-group">
                             <label>Địa chỉ liên lạc</label>
                             <input
                                 type="text"
@@ -187,7 +187,7 @@ function Modal({ setModal, dataTime }, props) {
                                 onChange={(event) => handleOnchangeInput(event, 'address')}
                             />
                         </div>
-                        <div className="col l-6 form-group">
+                        <div className="col l-6 c-6 form-group">
                             <label>Ngày sinh</label>
                             <input
                                 type="date"
@@ -197,7 +197,7 @@ function Modal({ setModal, dataTime }, props) {
                                 required
                             />
                         </div>
-                        <div className="col l-6 form-group">
+                        <div className="col l-6 c-6 form-group">
                             <label>Giới tính</label>
 
                             <select
@@ -212,7 +212,7 @@ function Modal({ setModal, dataTime }, props) {
                                 ))}
                             </select>
                         </div>
-                        <div className="col l-12 form-group">
+                        <div className="col c-12 l-12 form-group">
                             <label>Ghi chú</label>
                             <input
                                 type="text"

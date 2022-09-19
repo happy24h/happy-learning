@@ -38,12 +38,12 @@ body {
     line-height: 1.5;
     text-rendering: optimizespeed;
     color: var(--text-color);
-    overflow: hidden;
-    overflow-y: scroll;
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
 }
 
 .App {
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 // Scrollbar CSS
