@@ -81,3 +81,34 @@
         height: 50px;
     }
 }
+
+@media (max-width: 740px) {
+    .doctor-detail-container .intro-doctor {
+        display: flex;
+        margin: 0;
+    }
+
+    .doctor-detail-container .schedule-doctor {
+        margin: 0;
+        display: block;
+        min-height: 200px;
+        padding: 10px 0;
+    }
+
+    .doctor-detail-container .schedule-doctor .content-left,
+    .doctor-detail-container .schedule-doctor .content-right {
+        width: 100%;
+    }
+
+    .doctor-schedule-container .all-available-time .time-content .time-content-btns .btn-vie {
+        min-width: 105px;
+    }
+
+    .doctor-detail-container {
+        height: 100vh;
+    }
+
+    .doctor-detail-container .detail-infor-doctor {
+        padding: 10px;
+    }
+}

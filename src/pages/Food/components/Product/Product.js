@@ -1,6 +1,7 @@
 import Slider from 'react-slick';
 import classNames from 'classnames/bind';
-import styles from '../ContentSlider/ContentSlider.module.scss';
+// import styles from '../ContentSlider/ContentSlider.module.scss';
+import styles from '../../../Home/components/ContentSlider/ContentSlider.module.scss';
 const cx = classNames.bind(styles);
 
 let dataProduct = [

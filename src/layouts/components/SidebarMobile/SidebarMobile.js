@@ -13,14 +13,22 @@ function SidebarMobile({ handleModel }) {
                 <div className={cx('icon-close')} onClick={() => handleModel()}>
                     <FontAwesomeIcon icon={faSquareXmark} />
                 </div>
-                <MenuItem title="Home" to={config.routes.home} icon={<FontAwesomeIcon icon={faHome} />} />
-                <MenuItem title="Food" to={config.routes.food} icon={<FontAwesomeIcon icon={faBowlFood} />} />
-                <MenuItem title="Library" to={config.routes.library} icon={<FontAwesomeIcon icon={faBook} />} />
-                <MenuItem
-                    title="Calculator"
-                    to={config.routes.calculator}
-                    icon={<FontAwesomeIcon icon={faCalculator} />}
-                />
+                <div onClick={() => handleModel()}>
+                    <MenuItem title="Home" to={config.routes.home} icon={<FontAwesomeIcon icon={faHome} />} />
+                </div>
+                <div onClick={() => handleModel()}>
+                    <MenuItem title="Food" to={config.routes.food} icon={<FontAwesomeIcon icon={faBowlFood} />} />
+                </div>
+                <div onClick={() => handleModel()}>
+                    <MenuItem title="Library" to={config.routes.library} icon={<FontAwesomeIcon icon={faBook} />} />
+                </div>
+                <div onClick={() => handleModel()}>
+                    <MenuItem
+                        title="Calculator"
+                        to={config.routes.calculator}
+                        icon={<FontAwesomeIcon icon={faCalculator} />}
+                    />
+                </div>
             </nav>
         </div>
     );

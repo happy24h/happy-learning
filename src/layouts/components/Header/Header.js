@@ -18,6 +18,7 @@ import {
     faSignOut,
     faAngleLeft,
     faBars,
+    faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css';
 import Menu from '~/components/Popper/Menu';
@@ -79,7 +80,15 @@ function Header({ homePage }) {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 {modelSidebar && <SidebarMobile handleModel={handleModel} />}
-                {!modelSidebar && (
+                {!modelSidebar && homePage ? (
+                    <div className={cx('icon-bars')}>
+                        <Link to={config.routes.home}>
+                            <div className={cx('menu-mobile')}>
+                                <FontAwesomeIcon icon={faArrowLeft} />
+                            </div>
+                        </Link>
+                    </div>
+                ) : (
                     <div className={cx('icon-bars')} onClick={() => handleModel()}>
                         <div className={cx('menu-mobile')}>
                             <FontAwesomeIcon icon={faBars} />

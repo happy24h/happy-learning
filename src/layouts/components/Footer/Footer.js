@@ -8,7 +8,7 @@ function Footer() {
         <footer className={cx('footer')}>
             <div className={cx('wide')}>
                 <div className={cx('row')}>
-                    <div className="">
+                    <div className="col">
                         <h3 className={cx('footer__heading')}>Chăm sóc khách hàng</h3>
                         <ul className={cx('footer-list')}>
                             <li className={cx('footer-item')}>Trung Tâm Trợ Giúp</li>
@@ -16,7 +16,7 @@ function Footer() {
                             <li className={cx('footer-item')}>Hướng dẫn mua hàng</li>
                         </ul>
                     </div>
-                    <div className="">
+                    <div className="col">
                         <h3 className={cx('footer__heading')}>Giới thiệu</h3>
                         <ul className={cx('footer-list')}>
                             <li className={cx('footer-item')}>Giới thiệu</li>
@@ -24,7 +24,7 @@ function Footer() {
                             <li className={cx('footer-item')}>Điều khoản</li>
                         </ul>
                     </div>
-                    <div className="">
+                    <div className="col">
                         <h3 className={cx('footer__heading')}>Danh mục</h3>
                         <ul className={cx('footer-list')}>
                             <li className={cx('footer-item')}>Thể thao </li>
@@ -32,7 +32,7 @@ function Footer() {
                             <li className={cx('footer-item')}>Giáo dục</li>
                         </ul>
                     </div>
-                    <div className="">
+                    <div className="col">
                         <h3 className={cx('footer__heading')}>Theo dõi</h3>
                         <ul className={cx('footer-list')}>
                             <li className={cx('footer-item')}>Facebook</li>
