@@ -45,14 +45,30 @@
         max-width: 950px;
     }
 }
-
-@media (max-width: 740px) {
+@media (max-width: 980px) {
     .container {
-        max-width: 740px;
+        max-width: 720px;
     }
 }
-@media (max-width: 600px) {
+
+// @media (max-width: 740px) {
+//     .container {
+//         max-width: 740px;
+//     }
+// }
+@media (max-width: 740px) {
     .container {
-        max-width: 600px;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        max-width: 375px;
+    }
+}
+@media (max-width: 345px) {
+    .container {
+        max-width: 275px;
     }
 }

@@ -32,3 +32,13 @@
         height: 170px;
     }
 }
+
+@media (max-width: 420px) {
+    .slider-wrapper {
+        height: 120px;
+    }
+
+    .image-slider {
+        height: 100px;
+    }
+}

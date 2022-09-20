@@ -123,3 +123,10 @@ ol {
         margin-left: 37px;
     }
 }
+
+@media (max-width: 420px) {
+    * {
+        overflow: hidden;
+        overflow-y: auto;
+    }
+}

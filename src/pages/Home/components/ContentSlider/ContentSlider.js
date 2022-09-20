@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Courses from '../Courses';
 import Websites from '../Websites';
 import Teacher from '../Teacher';
@@ -18,13 +18,46 @@ function SamplePrevArrow(props) {
     return <div className={className} style={{ ...style, display: 'block', background: 'green' }} onClick={onClick} />;
 }
 export default function ContentSlider() {
-    let inner_w = window.innerWidth;
-    console.log('data width:', inner_w);
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+
+    useEffect(() => {
+        function handleWindowResize() {
+            setWindowSize(getWindowSize());
+        }
+
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+    }, []);
+
+    console.log('set window width:', windowSize);
+
+    function getWindowSize() {
+        const { innerWidth, innerHeight } = window;
+        return { innerWidth, innerHeight };
+    }
+
+    console.log('set window width >>>>:', windowSize.innerWidth);
+
     const handleInnerWidth = () => {
-        if (inner_w >= 740) {
+        if (windowSize.innerWidth >= 740) {
             return false;
         } else {
             return true;
+        }
+    };
+
+    const handleShow = () => {
+        if (windowSize.innerWidth >= 980) {
+            return 4;
+        } else if (windowSize.innerWidth >= 520) {
+            return 3;
+        } else if (windowSize.innerWidth >= 345) {
+            return 2;
+        } else {
+            return 1;
         }
     };
 
@@ -32,8 +65,8 @@ export default function ContentSlider() {
         dots: false,
         infinite: handleInnerWidth(),
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: handleShow(),
+        slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
     };

@@ -42,7 +42,7 @@ function Teacher({ settings }) {
                             posts.length > 0 &&
                             posts.map((item, index) => {
                                 var imageBase64 = Buffer.from(item.image, 'base64');
-                                console.log('base64', imageBase64);
+                                // console.log('base64', imageBase64);
 
                                 return (
                                     <div
