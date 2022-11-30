@@ -5,7 +5,7 @@ const routes = {
     login: '/login',
     register: '/register',
     library: '/library',
-    calculator: '/calculator',
+    blog: '/blog',
     detailWebsite: '/detail-learn-website/:id',
     detailCourse: '/detail-course/:id',
     detailTeacher: '/detail-teacher/:id',

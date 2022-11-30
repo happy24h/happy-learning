@@ -7,7 +7,7 @@ import Learn from '~/pages/Learn';
 import Login from '~/pages/Login';
 import Register from '~/pages/Register';
 import Library from '~/pages/Library';
-import Calculator from '~/pages/Calculator';
+import Blog from '~/pages/Blog';
 import DetailWebsite from '~/pages/Home/Detail/Website';
 import DetailCourse from '~/pages/Home/Detail/Course';
 import DetailTeacher from '~/pages/Home/Detail/Teacher/DetailTeacher';
@@ -25,7 +25,7 @@ const publicRouters = [
     { path: config.routes.home, component: Home },
     { path: config.routes.food, component: Food },
     { path: config.routes.library, component: Library },
-    { path: config.routes.calculator, component: Calculator },
+    { path: config.routes.blog, component: Blog },
     { path: config.routes.learn, component: Learn, changeLayout: HeaderOnly },
     { path: config.routes.detailWebsite, component: DetailWebsite, changeLayout: HeaderOnly },
     { path: config.routes.detailCourse, component: DetailCourse, changeLayout: HeaderOnly },

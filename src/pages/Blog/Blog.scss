@@ -1,0 +1,71 @@
+.body-lifeSkills {
+    text-align: start;
+
+    .blog_title {
+        margin-bottom: 35px;
+    }
+    .nav-blog {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        background-color: #151515;
+    }
+
+    .nav-blog ul {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .nav-blog ul li {
+        color: #fff;
+        padding: 0 20px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .nav-blog ul li:hover {
+        background-color: #fcaf17;
+    }
+    .container_blog {
+        display: flex;
+    }
+
+    .content_blog {
+        width: 80%;
+        background-color: #f2f2f2;
+        padding: 50px;
+    }
+    .content_nav {
+        width: 20%;
+        background-color: #f2f2f2;
+    }
+    .ul_content_nav {
+        padding: 20px;
+        position: fixed;
+        z-index: 1;
+        height: 45vh;
+        border-radius: 5px;
+    }
+
+    // position: fixed;
+    // z-index: 1;
+    // height: 50vh;
+    // top: 80px;
+    // background-color: #ccc;
+
+    .content_nav ul li {
+        margin: 6px 0;
+    }
+
+    .content_nav ul li a {
+        color: #1976d2;
+        font-weight: bold;
+    }
+    .content_nav ul li a:hover {
+        color: #fcaf17 !important;
+    }
+
+    .content-text-blog article {
+        margin-bottom: 30px;
+    }
+}
