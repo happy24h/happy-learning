@@ -4,6 +4,7 @@
     .blog_title {
         margin-bottom: 35px;
     }
+
     .nav-blog {
         width: 100%;
         height: 50px;
@@ -15,6 +16,7 @@
         display: flex;
         justify-content: flex-start;
     }
+
     .nav-blog ul li {
         color: #fff;
         padding: 0 20px;
@@ -54,7 +56,7 @@
     // background-color: #ccc;
 
     .content_nav ul li {
-        margin: 6px 0;
+        margin-bottom: 10px;
     }
 
     .content_nav ul li a {
@@ -67,5 +69,18 @@
 
     .content-text-blog article {
         margin-bottom: 30px;
+    }
+    @media (max-width: 720px) {
+        .nav-blog {
+            display: none;
+        }
+
+        .content_blog {
+            width: 100%;
+        }
+
+        .content_nav {
+            display: none;
+        }
     }
 }

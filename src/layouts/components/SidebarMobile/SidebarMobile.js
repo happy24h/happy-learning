@@ -23,11 +23,7 @@ function SidebarMobile({ handleModel }) {
                     <MenuItem title="Library" to={config.routes.library} icon={<FontAwesomeIcon icon={faBook} />} />
                 </div>
                 <div onClick={() => handleModel()}>
-                    <MenuItem
-                        title="Calculator"
-                        to={config.routes.calculator}
-                        icon={<FontAwesomeIcon icon={faCalculator} />}
-                    />
+                    <MenuItem title="Blog" to={config.routes.blog} icon={<FontAwesomeIcon icon={faCalculator} />} />
                 </div>
             </nav>
         </div>

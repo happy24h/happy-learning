@@ -225,7 +225,9 @@ function Modal({ setModal, dataTime }, props) {
                 </div>
                 <div className="modal__footer">
                     <button onClick={() => handleConfirmBooking()}>Xác nhận</button>
-                    <button className="cancel">Hủy</button>
+                    <button className="cancel" onClick={() => setModal(false)}>
+                        Hủy
+                    </button>
                 </div>
             </div>
         </div>
